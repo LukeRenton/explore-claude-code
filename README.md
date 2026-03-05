@@ -18,7 +18,7 @@
 An interactive website that teaches [Claude Code](https://docs.anthropic.com/en/docs/claude-code) through a simulated project you can click through. No docs pages. No walls of text. Just a project you can poke around in.
 
 <p align="center">
-  <img src="site/screenshots/current-state.png" alt="Screenshot" width="820">
+  <img src="current.png" alt="Screenshot" width="820">
 </p>
 
 ## What is this?
