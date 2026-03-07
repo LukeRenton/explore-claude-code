@@ -1,0 +1,63 @@
+{
+  // 권한은 Claude가 허가 없이 사용할 수 있는 도구를 제어합니다.
+  // 각 항목은 도구 + 인자에 대해 매칭되는 glob 패턴입니다.
+  "permissions": {
+    "allow": [
+      // Claude가 프롬프트 없이 모든 파일을 읽을 수 있도록 허용
+      "Read",
+      // Claude가 자유롭게 파일을 검색할 수 있도록 허용
+      "Glob",
+      "Grep",
+      // Claude가 테스트 스위트를 실행할 수 있도록 허용
+      "Bash(npm test)",
+      "Bash(npm run lint)",
+      // Claude가 개발 서버를 실행할 수 있도록 허용
+      "Bash(npm run dev)",
+      // git status와 diff 허용 (읽기 전용 git)
+      "Bash(git status)",
+      "Bash(git diff*)",
+      "Bash(git log*)"
+    ],
+    "deny": [
+      // Claude가 원격으로 push하는 것을 절대 허용하지 않음
+      "Bash(git push*)",
+      // Claude가 허가 없이 패키지를 설치하는 것을 절대 허용하지 않음
+      "Bash(npm install*)",
+      // 파괴적인 git 명령어 차단
+      "Bash(git reset --hard*)",
+      "Bash(git clean*)"
+    ]
+  },
+
+  // API 설정
+  "model": "claude-sonnet-4-6",
+  "maxTokens": 16384,
+
+  // 훅은 Claude의 워크플로우 특정 시점에 커스텀 스크립트를 실행합니다.
+  // 전체 개요와 예제 스크립트는 .claude/hooks/를 참조하세요.
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/my-hook.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npm run lint --fix",
+            "async": true
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,302 @@
+{
+  "meta": { "lang": "en", "dir": "ltr" },
+  "ui": {
+    "titleBar": "claude-code-explorer : my-project",
+    "sidebarHeader": "My-Project",
+    "welcomeTab": "Welcome",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "rendered": "Rendered",
+    "raw": "Raw",
+    "relatedFiles": "Related files",
+    "filePrefix": "File:",
+    "deprecated": "deprecated",
+    "deprecationNotice": "Deprecated: this feature has been superseded by <strong>skills</strong>. Commands still work, but skills offer frontmatter, supporting files, and auto-loading.",
+    "features": "features",
+    "terminalHeader": "Claude Code",
+    "terminalPlaceholder": "Type /help for commands...",
+    "closeTooltip": "nice try",
+    "langToggle": "KO"
+  },
+  "welcome": {
+    "label": "// explore-claude-code",
+    "title": "Learn <em>Claude Code</em><br>by exploring it.",
+    "subtitle": "This is a simulated Claude Code project. Every file and folder in the sidebar is a real Claude Code concept &mdash; the same <code>.claude/</code> directory, config files, and scaffolding you'd find in an actual repo. Click any file to learn what it does, how to set it up, and see annotated examples you can copy into your own projects.",
+    "subtitleSecondary": "Open a file. Read the source. Learn. Build."
+  },
+  "void": {
+    "line1": "you tried to minimize me.",
+    "line2": "bold move.",
+    "line3": "Claude Code doesn't shrink.<br>It expands into every corner of your codebase.",
+    "line4": "Agentic coding with no limits. Infinite context. Parallel tool use.<br>Your entire repository as working memory.",
+    "escape": "// escape the void",
+    "easterLine1": "you fed it everything.",
+    "easterLine2": "and it's still hungry.",
+    "easterLine3": "200k context window. Infinite ambition.<br>Some say if you minimize Claude Code three times,<br>it starts writing your code before you ask."
+  },
+  "terminal": {
+    "banner": {
+      "tagline": "Learn by doing. Every file is a lesson.<br>Every folder is a chapter.",
+      "quickStartTitle": "Quick Start",
+      "helpDesc": "- list all commands",
+      "initDesc": "- watch CLAUDE.md get created",
+      "doctorDesc": "- run a health check",
+      "diffDesc": "- see a live diff demo",
+      "howToTitle": "How to Explore",
+      "step1": "Browse the file tree on the left",
+      "step2": "Click any file to learn what it does",
+      "step3": "Try commands here to see them in action",
+      "version": "1.0.42",
+      "model": "claude-opus-4-6",
+      "project": "my-project"
+    },
+    "help": {
+      "heading": "Available Commands",
+      "cmds": [
+        ["/help", "Show this command reference"],
+        ["/init", "Initialize a CLAUDE.md project file"],
+        ["/doctor", "Check installation health"],
+        ["/cost", "Show session token usage & cost"],
+        ["/compact", "Compress conversation context"],
+        ["/model", "View available models"],
+        ["/diff", "Show uncommitted changes"],
+        ["/status", "Version, model, and account info"],
+        ["/config", "Open settings explorer"],
+        ["/memory", "View auto-memory entries"],
+        ["/clear", "Clear terminal output"]
+      ],
+      "tip": "Tip: Use arrow keys to navigate command history."
+    },
+    "init": {
+      "scanning": "Scanning project structure...",
+      "found": "Found: package.json, tsconfig.json, src/",
+      "generating": "Generating project context...",
+      "created": "Created CLAUDE.md",
+      "lines": [
+        "  # Project: my-project",
+        "  ",
+        "  ## Tech Stack",
+        "  - TypeScript + React",
+        "  - Vite for bundling",
+        "  - Tailwind CSS",
+        "  ",
+        "  ## Conventions",
+        "  - Use functional components",
+        "  - Prefer named exports",
+        "  - Tests in __tests__/ directories"
+      ],
+      "success": "CLAUDE.md created successfully. Claude will use this as project context."
+    },
+    "doctor": {
+      "heading": "Running diagnostics...",
+      "checks": [
+        ["Authentication", "authenticated as user@example.com"],
+        ["Model access", "claude-opus-4-6 available"],
+        ["Git repository", "clean working tree"],
+        ["Node.js", "v22.1.0"],
+        ["MCP servers", "2 connected (filesystem, github)"],
+        ["Permissions", "settings.json loaded"],
+        ["CLAUDE.md", "found at project root"]
+      ],
+      "success": "All checks passed. Claude Code is ready."
+    },
+    "cost": {
+      "heading": "Session Usage",
+      "inputTokens": "Input tokens",
+      "outputTokens": "Output tokens",
+      "cacheRead": "Cache read",
+      "cacheWrite": "Cache write",
+      "totalCost": "Total cost",
+      "messages": "Messages",
+      "duration": "Duration"
+    },
+    "compact": {
+      "compressing": "Compressing conversation context...",
+      "before": "Before",
+      "after": "After",
+      "reduction": "Reduction",
+      "success": "Context compacted. Conversation summary preserved."
+    },
+    "model": {
+      "heading": "Available Models",
+      "models": [
+        ["claude-opus-4-6", "Most capable, deep reasoning"],
+        ["claude-sonnet-4-6", "Fast, balanced performance"],
+        ["claude-haiku-4-5", "Fastest, lightweight tasks"]
+      ],
+      "tip": "Active model shown with <span class=\"term-text--accent\">\u25cf</span>. Use <span class=\"term-text--accent\">/model &lt;name&gt;</span> to switch."
+    },
+    "diff": {
+      "checking": "Checking uncommitted changes...",
+      "filesChanged": "Files changed",
+      "insertions": "Insertions",
+      "deletions": "Deletions"
+    },
+    "status": {
+      "heading": "Claude Code Status",
+      "version": "Version",
+      "modelLabel": "Model",
+      "account": "Account",
+      "plan": "Plan",
+      "planValue": "Max (5x usage)",
+      "projectLabel": "Project",
+      "workingDir": "Working dir",
+      "workingDirValue": "~/code/my-project",
+      "mcpServers": "MCP servers",
+      "mcpServersValue": "2 connected",
+      "claudeMd": "CLAUDE.md",
+      "claudeMdValue": "loaded",
+      "permissions": "Permissions",
+      "permissionsValue": "default + 3 custom"
+    },
+    "config": {
+      "opening": "Opening settings..."
+    },
+    "memory": {
+      "heading": "Auto-Memory Entries",
+      "source": "from ~/.claude/projects/.../memory/MEMORY.md",
+      "entries": [
+        "User prefers functional components over classes",
+        "Always run tests with --coverage flag",
+        "Project uses pnpm, not npm",
+        "Prefer named exports over default exports",
+        "Error messages should be user-friendly, not technical"
+      ],
+      "footer": "5 entries. Edit with <span class=\"term-text--accent\">/memory --edit</span>"
+    },
+    "error": {
+      "unknown": "Unknown command:",
+      "tip": "Type <span class=\"term-text--accent\">/help</span> to see available commands."
+    }
+  },
+  "manifest": {
+    "badges": {
+      "memory": "memory",
+      "commands": "commands",
+      "config": "config",
+      "mcp": "MCP",
+      "skill": "skill",
+      "agents": "agents",
+      "plugins": "plugins",
+      "marketplace": "marketplace",
+      "hooks": "hooks",
+      "code": "code"
+    },
+    "features": {
+      "claude-md": {
+        "title": "CLAUDE.md",
+        "description": "How Claude remembers context across sessions. Your project's persistent memory."
+      },
+      "settings": {
+        "title": "Settings & Permissions",
+        "description": "Configure Claude's behaviour, tool access, and safety guardrails."
+      },
+      "commands": {
+        "title": "Custom Slash Commands",
+        "description": "Saved workflows you can invoke with a keystroke."
+      },
+      "skills": {
+        "title": "Skills",
+        "description": "Teach Claude specialised knowledge it loads autonomously when needed."
+      },
+      "mcp": {
+        "title": "MCP Servers",
+        "description": "Connect Claude to external tools, APIs, and services via a standard protocol."
+      },
+      "hooks": {
+        "title": "Hooks",
+        "description": "Run custom scripts automatically before or after Claude's tool calls."
+      },
+      "agents": {
+        "title": "Agents",
+        "description": "Create specialised subagents and coordinate agent teams for parallel work."
+      },
+      "plugins": {
+        "title": "Plugins",
+        "description": "Package skills, agents, hooks, and MCP servers into shareable extensions."
+      },
+      "marketplaces": {
+        "title": "Marketplaces",
+        "description": "Distribute and discover plugins through curated catalogues."
+      }
+    },
+    "nodes": {
+      ".claude/settings.json": {
+        "label": "Settings & Permissions",
+        "description": "Controls what Claude can and can't do - tool permissions, safety rules, and behaviour."
+      },
+      ".claude/commands/COMMANDS.md": {
+        "label": "Commands (Deprecated)",
+        "description": "Learn about the original slash command system and how it has been merged into skills."
+      },
+      ".claude/commands/my-command/my-command.md": {
+        "label": "Command File Scaffolding",
+        "description": "A starter command file showing the prompt template format and how $ARGUMENTS works."
+      },
+      ".claude/skills/SKILLS.md": {
+        "label": "What Are Skills?",
+        "description": "Learn what skills are, how to create them, and how Claude discovers and loads them automatically."
+      },
+      ".claude/skills/my-skill/SKILL.md": {
+        "label": "SKILL.md - The Skill Definition",
+        "description": "A starter SKILL.md with every frontmatter field, body section, and variable annotated."
+      },
+      ".claude/skills/my-skill/scripts/helper.sh": {
+        "label": "scripts/ - Executable Code",
+        "description": "The scripts/ directory holds executable code that Claude runs when following skill instructions."
+      },
+      ".claude/skills/my-skill/references/REFERENCE.md": {
+        "label": "references/ - Detailed Documentation",
+        "description": "The references/ directory holds detailed docs that Claude loads on demand."
+      },
+      ".claude/skills/my-skill/assets/template.md": {
+        "label": "assets/ - Static Resources",
+        "description": "The assets/ directory holds templates, schemas, data files, and other static resources."
+      },
+      ".claude/agents/AGENTS.md": {
+        "label": "Agents Overview",
+        "description": "Learn about subagents, agent teams, and how to create custom agents for specialised tasks."
+      },
+      ".claude/agents/my-agent/my-agent.md": {
+        "label": "Agent File Scaffolding",
+        "description": "A starter agent file showing YAML frontmatter configuration and system prompt structure."
+      },
+      ".claude/hooks/HOOKS.md": {
+        "label": "Hooks Overview",
+        "description": "Learn how hooks intercept Claude's actions to run validation, formatting, and safety checks."
+      },
+      ".claude/hooks/my-hook/my-hook.sh": {
+        "label": "Hook Script Scaffolding",
+        "description": "A starter hook script showing how to read JSON input, check conditions, and return decisions."
+      },
+      ".claude/plugins/PLUGINS.md": {
+        "label": "What Are Plugins?",
+        "description": "Learn how plugins package skills, agents, hooks, and MCP servers into shareable extensions."
+      },
+      ".claude/plugins/my-plugin/.claude-plugin/plugin.json": {
+        "label": "Plugin Manifest",
+        "description": "The plugin.json manifest defines your plugin's identity, version, and metadata."
+      },
+      ".claude/plugins/MARKETPLACES.md": {
+        "label": "Plugin Marketplaces",
+        "description": "Learn how to create, host, and distribute plugin catalogues for teams and communities."
+      },
+      ".claude/plugins/my-marketplace/.claude-plugin/marketplace.json": {
+        "label": "Marketplace Catalogue",
+        "description": "The marketplace.json file lists plugins and where to fetch them from."
+      },
+      "src/index.ts": {
+        "label": "Entry Point",
+        "description": "The application entry point - a demo source file to give the project context."
+      },
+      "CLAUDE.md": {
+        "label": "Project Memory",
+        "description": "The file Claude reads at the start of every session. Your project's persistent memory."
+      },
+      ".mcp.json": {
+        "label": "MCP Configuration",
+        "description": "Connect Claude to external tools, APIs, and services via the Model Context Protocol."
+      }
+    }
+  }
+}

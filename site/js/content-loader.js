@@ -18,7 +18,7 @@ class ContentLoader {
     let cardsHtml = '';
     for (const id of featureIds) {
       const f = features[id];
-      const depTag = f.deprecated ? '<span class="feature-card__deprecated">deprecated</span>' : '';
+      const depTag = f.deprecated ? `<span class="feature-card__deprecated">${I18n.t('ui.deprecated')}</span>` : '';
       cardsHtml += `
         <div class="feature-card${f.deprecated ? ' feature-card--deprecated' : ''}" data-feature="${id}">
           <div class="feature-card__icon">${Icons.forFeature(id, 22)}</div>
@@ -29,18 +29,10 @@ class ContentLoader {
 
     content.innerHTML = `
       <div class="welcome">
-        <div class="welcome__label">// explore-claude-code</div>
-        <h1 class="welcome__title">Learn <em>Claude Code</em><br>by exploring it.</h1>
-        <p class="welcome__subtitle">
-          This is a simulated Claude Code project. Every file and folder in the
-          sidebar is a real Claude Code concept &mdash; the same <code>.claude/</code>
-          directory, config files, and scaffolding you'd find in an actual repo.
-          Click any file to learn what it does, how to set it up, and see
-          annotated examples you can copy into your own projects.
-        </p>
-        <p class="welcome__subtitle welcome__subtitle--secondary">
-          Open a file. Read the source. Learn. Build.
-        </p>
+        <div class="welcome__label">${I18n.t('welcome.label')}</div>
+        <h1 class="welcome__title">${I18n.t('welcome.title')}</h1>
+        <p class="welcome__subtitle">${I18n.t('welcome.subtitle')}</p>
+        <p class="welcome__subtitle welcome__subtitle--secondary">${I18n.t('welcome.subtitleSecondary')}</p>
         <div class="feature-cards">${cardsHtml}</div>
       </div>`;
 
@@ -78,17 +70,26 @@ class ContentLoader {
     const content = document.getElementById('content');
     if (!content) return;
 
-    // Load content from external file if needed
-    if (node.contentFile && !node.content) {
-      try {
-        const resp = await fetch('content/' + node.contentFile);
-        if (resp.ok) {
-          node.content = await resp.text();
+    // 언어별 콘텐츠 로드
+    const lang = I18n.getLang();
+    const cacheKey = `_content_${lang}`;
+    if (node.contentFile && !node[cacheKey]) {
+      const paths = lang !== 'en'
+        ? [`content/${lang}/${node.contentFile}`, `content/${node.contentFile}`]
+        : [`content/${node.contentFile}`];
+      for (const path of paths) {
+        try {
+          const resp = await fetch(path);
+          if (resp.ok) {
+            node[cacheKey] = await resp.text();
+            break;
+          }
+        } catch (e) {
+          // 다음 경로 시도
         }
-      } catch (e) {
-        // Silently fall through to no-content state
       }
     }
+    node.content = node[cacheKey] || null;
 
     // Update tab bar
     this._updateTab(node);
@@ -115,11 +116,11 @@ class ContentLoader {
 
     // Deprecation notice
     if (feature && feature.deprecated) {
-      html += `<div class="file-view__deprecated">Deprecated: this feature has been superseded by <strong>skills</strong>. Commands still work, but skills offer frontmatter, supporting files, and auto-loading.</div>`;
+      html += `<div class="file-view__deprecated">${I18n.t('ui.deprecationNotice')}</div>`;
     }
 
     // File path
-    html += `<div class="file-view__meta">File: <code>${node.path}</code></div>`;
+    html += `<div class="file-view__meta">${I18n.t('ui.filePrefix')} <code>${node.path}</code></div>`;
 
     // Command
     if (node.command) {
@@ -127,7 +128,7 @@ class ContentLoader {
         <div class="file-view__command">
           <span class="file-view__command-prompt">$</span>
           <span class="file-view__command-text">${this._escapeHtml(node.command)}</span>
-          <button class="file-view__command-copy" data-command="${this._escapeAttr(node.command)}">Copy</button>
+          <button class="file-view__command-copy" data-command="${this._escapeAttr(node.command)}">${I18n.t('ui.copy')}</button>
         </div>`;
     }
 
@@ -139,7 +140,7 @@ class ContentLoader {
       const others = relatedNodes.filter(n => n.path !== node.path);
       if (others.length > 0) {
         html += '<div class="file-view__related">';
-        html += '<div class="file-view__related-title">Related files</div>';
+        html += `<div class="file-view__related-title">${I18n.t('ui.relatedFiles')}</div>`;
         for (const other of others) {
           html += `<a class="file-view__related-link" data-path="${other.path}">${other.path}</a>`;
         }
@@ -171,10 +172,10 @@ class ContentLoader {
               <span>${node.path}</span>
               <div class="code-preview__actions">
                 <div class="code-preview__toggle">
-                  <button class="code-preview__toggle-btn active" data-view="rendered">Rendered</button>
-                  <button class="code-preview__toggle-btn" data-view="raw">Raw</button>
+                  <button class="code-preview__toggle-btn active" data-view="rendered">${I18n.t('ui.rendered')}</button>
+                  <button class="code-preview__toggle-btn" data-view="raw">${I18n.t('ui.raw')}</button>
                 </div>
-                <button class="code-preview__copy" data-content="${this._escapeAttr(node.content)}">Copy</button>
+                <button class="code-preview__copy" data-content="${this._escapeAttr(node.content)}">${I18n.t('ui.copy')}</button>
               </div>
             </div>
             <div class="code-preview__rendered">${rendered}</div>
@@ -187,7 +188,7 @@ class ContentLoader {
           <div class="code-preview">
             <div class="code-preview__header">
               <span>${node.path}</span>
-              <button class="code-preview__copy" data-content="${this._escapeAttr(node.content)}">Copy</button>
+              <button class="code-preview__copy" data-content="${this._escapeAttr(node.content)}">${I18n.t('ui.copy')}</button>
             </div>
             <div class="code-preview__body">
               <pre class="language-${lang}"><code class="language-${lang}">${highlighted}</code></pre>
@@ -248,7 +249,7 @@ class ContentLoader {
   _copyText(btn, text) {
     navigator.clipboard.writeText(text).then(() => {
       const original = btn.textContent;
-      btn.textContent = 'Copied!';
+      btn.textContent = I18n.t('ui.copied');
       setTimeout(() => { btn.textContent = original; }, 1500);
     });
   }

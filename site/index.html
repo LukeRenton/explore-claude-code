@@ -8,6 +8,8 @@
 
   <!-- SEO -->
   <meta name="description" content="Learn Claude Code by exploring a simulated project. Click through real CLAUDE.md files, skills, plugins, hooks, agents, and MCP configs to understand how each feature works.">
+  <link rel="alternate" hreflang="en" href="?lang=en">
+  <link rel="alternate" hreflang="ko" href="?lang=ko">
   <meta name="keywords" content="Claude Code, Claude, Anthropic, AI coding, agentic coding, CLAUDE.md, skills, plugins, MCP, hooks, agents">
   <meta name="author" content="Luke Renton">
 
@@ -51,6 +53,7 @@
         <div class="traffic-light traffic-light--maximize"></div>
       </div>
       <span class="title-bar__text">claude-code-explorer : my-project</span>
+      <button class="lang-toggle" id="lang-toggle">KO</button>
       <a class="title-bar__badge" href="https://github.com/LukeRenton/explore-claude-code" target="_blank" rel="noopener noreferrer">
         <img src="https://img.shields.io/github/stars/LukeRenton/explore-claude-code?style=flat&logo=github&label=GitHub&color=c47a50" alt="GitHub" height="18">
       </a>
@@ -122,6 +125,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
 
   <!-- App scripts -->
+  <script src="js/i18n.js"></script>
   <script src="js/icons.js"></script>
   <script src="js/file-explorer.js"></script>
   <script src="js/content-loader.js"></script>

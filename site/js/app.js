@@ -12,6 +12,9 @@ class App {
   }
 
   async init() {
+    // i18n 초기화
+    await I18n.init();
+
     // Load manifest
     try {
       const response = await fetch('data/manifest.json');
@@ -22,6 +25,9 @@ class App {
         '<p style="color:#ff5f57;padding:20px;">Failed to load manifest.json. Make sure you\'re serving the site directory.</p>';
       return;
     }
+
+    // manifest에 번역 오버레이
+    I18n.applyToManifest(this.manifest);
 
     // Count features
     const featureCount = Object.keys(this.manifest.features).length;
@@ -46,8 +52,14 @@ class App {
     // Event listeners
     this._setupEventListeners();
 
+    // 언어 토글 버튼
+    this._setupLangToggle();
+
     // Hash navigation
     this._handleHash();
+
+    // void 텍스트 업데이트
+    this._updateVoidText();
 
     // Global reference
     window.app = this;
@@ -87,6 +99,9 @@ class App {
 
     // Hash change
     window.addEventListener('hashchange', () => this._handleHash());
+
+    // 언어 변경 이벤트
+    window.addEventListener('langchange', () => this._onLangChange());
 
     // Traffic light buttons
     this._setupTrafficLights();
@@ -182,15 +197,7 @@ class App {
     if (voidGlow) voidGlow.style.display = '';
 
     // Restore original void text
-    const voidText = document.getElementById('void-text');
-    if (voidText) {
-      voidText.innerHTML = `
-        <p class="void__line void__line--dim">you tried to minimize me.</p>
-        <p class="void__line void__line--bold">bold move.</p>
-        <p class="void__line void__line--main">Claude Code doesn't shrink.<br>It expands into every corner of your codebase.</p>
-        <p class="void__line void__line--dim void__line--small">Agentic coding with no limits. Infinite context. Parallel tool use.<br>Your entire repository as working memory.</p>
-      `;
-    }
+    this._updateVoidText();
 
     // Reset escape button
     const escapeBtn = document.getElementById('void-escape');
@@ -519,13 +526,9 @@ class App {
       const voidText = document.getElementById('void-text');
       if (voidText) {
         voidText.innerHTML = `
-          <p class="void__line void__line--bold">you fed it everything.</p>
-          <p class="void__line void__line--main">and it's still hungry.</p>
-          <p class="void__line void__line--dim void__line--small">
-            200k context window. Infinite ambition.<br>
-            Some say if you minimize Claude Code three times,<br>
-            it starts writing your code before you ask.
-          </p>
+          <p class="void__line void__line--bold">${I18n.t('void.easterLine1')}</p>
+          <p class="void__line void__line--main">${I18n.t('void.easterLine2')}</p>
+          <p class="void__line void__line--dim void__line--small">${I18n.t('void.easterLine3')}</p>
         `;
       }
 
@@ -583,6 +586,69 @@ class App {
     if (hash) {
       this.explorer.selectPath(hash);
     }
+  }
+
+  _setupLangToggle() {
+    const btn = document.getElementById('lang-toggle');
+    if (!btn) return;
+    btn.textContent = I18n.t('ui.langToggle');
+    btn.addEventListener('click', () => {
+      const next = I18n.getLang() === 'en' ? 'ko' : 'en';
+      I18n.setLang(next);
+    });
+  }
+
+  _updateVoidText() {
+    const voidText = document.getElementById('void-text');
+    if (voidText) {
+      voidText.innerHTML = `
+        <p class="void__line void__line--dim">${I18n.t('void.line1')}</p>
+        <p class="void__line void__line--bold">${I18n.t('void.line2')}</p>
+        <p class="void__line void__line--main">${I18n.t('void.line3')}</p>
+        <p class="void__line void__line--dim void__line--small">${I18n.t('void.line4')}</p>
+      `;
+    }
+    const escapeBtn = document.getElementById('void-escape');
+    if (escapeBtn) escapeBtn.textContent = I18n.t('void.escape');
+    const closeTooltip = document.getElementById('close-tooltip');
+    if (closeTooltip) closeTooltip.textContent = I18n.t('ui.closeTooltip');
+  }
+
+  async _onLangChange() {
+    // manifest 재로드 및 번역 적용
+    try {
+      const response = await fetch('data/manifest.json');
+      this.manifest = await response.json();
+    } catch (e) {
+      return;
+    }
+    I18n.applyToManifest(this.manifest);
+
+    // 컴포넌트 재렌더링
+    this.contentLoader.manifest = this.manifest;
+    this.explorer = new FileExplorer(this.manifest, (node) => {
+      this._onFileSelected(node);
+    });
+    this.explorer.render();
+    this.contentLoader.showWelcome();
+    this._updateVoidText();
+
+    // 토글 버튼 텍스트 업데이트
+    const btn = document.getElementById('lang-toggle');
+    if (btn) btn.textContent = I18n.t('ui.langToggle');
+
+    // 터미널 재초기화
+    this.terminal = new Terminal();
+    this.terminal.init();
+
+    // placeholder 업데이트
+    const termInput = document.getElementById('terminal-input');
+    if (termInput) termInput.placeholder = I18n.t('ui.terminalPlaceholder');
+
+    // SEO 업데이트
+    document.title = I18n.getLang() === 'ko'
+      ? 'Explore Claude Code - Claude Code 탐험하기'
+      : 'Explore Claude Code';
   }
 }
 

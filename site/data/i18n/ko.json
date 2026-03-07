@@ -1,0 +1,302 @@
+{
+  "meta": { "lang": "ko", "dir": "ltr" },
+  "ui": {
+    "titleBar": "claude-code-explorer : my-project",
+    "sidebarHeader": "My-Project",
+    "welcomeTab": "시작하기",
+    "copy": "복사",
+    "copied": "복사됨!",
+    "rendered": "렌더링",
+    "raw": "원본",
+    "relatedFiles": "관련 파일",
+    "filePrefix": "파일:",
+    "deprecated": "지원 종료",
+    "deprecationNotice": "지원 종료: 이 기능은 <strong>skills</strong>로 대체되었습니다. 기존 명령어는 계속 작동하지만, skills는 frontmatter, 지원 파일, 자동 로딩을 제공합니다.",
+    "features": "기능",
+    "terminalHeader": "Claude Code",
+    "terminalPlaceholder": "/help를 입력하세요...",
+    "closeTooltip": "좋은 시도",
+    "langToggle": "EN"
+  },
+  "welcome": {
+    "label": "// explore-claude-code",
+    "title": "<em>Claude Code</em>를<br>탐험하며 배우세요.",
+    "subtitle": "이것은 시뮬레이션된 Claude Code 프로젝트입니다. 사이드바의 모든 파일과 폴더는 실제 Claude Code 개념입니다 &mdash; 실제 저장소에서 볼 수 있는 것과 동일한 <code>.claude/</code> 디렉토리, 설정 파일, 스캐폴딩으로 구성되어 있습니다. 파일을 클릭하면 기능 설명, 설정 방법, 프로젝트에 바로 복사할 수 있는 주석 달린 예제를 볼 수 있습니다.",
+    "subtitleSecondary": "파일을 열고. 소스를 읽고. 배우고. 만드세요."
+  },
+  "void": {
+    "line1": "나를 최소화하려고 했군요.",
+    "line2": "대담하네요.",
+    "line3": "Claude Code는 줄어들지 않습니다.<br>코드베이스의 모든 구석으로 확장됩니다.",
+    "line4": "제한 없는 에이전틱 코딩. 무한한 컨텍스트. 병렬 도구 사용.<br>전체 저장소가 작업 메모리.",
+    "escape": "// void에서 탈출",
+    "easterLine1": "모든 것을 먹여줬군요.",
+    "easterLine2": "그래도 아직 배고파요.",
+    "easterLine3": "200k 컨텍스트 윈도우. 무한한 야망.<br>Claude Code를 세 번 최소화하면,<br>요청하기 전에 코드를 작성하기 시작한다는 전설이 있습니다."
+  },
+  "terminal": {
+    "banner": {
+      "tagline": "직접 해보며 배우세요. 모든 파일이 수업이고,<br>모든 폴더가 챕터입니다.",
+      "quickStartTitle": "빠른 시작",
+      "helpDesc": "- 모든 명령어 보기",
+      "initDesc": "- CLAUDE.md 생성 과정 보기",
+      "doctorDesc": "- 상태 점검 실행",
+      "diffDesc": "- 실시간 diff 데모 보기",
+      "howToTitle": "탐험 방법",
+      "step1": "왼쪽 파일 트리 탐색하기",
+      "step2": "파일을 클릭하여 기능 알아보기",
+      "step3": "여기서 명령어를 실행해 보기",
+      "version": "1.0.42",
+      "model": "claude-opus-4-6",
+      "project": "my-project"
+    },
+    "help": {
+      "heading": "사용 가능한 명령어",
+      "cmds": [
+        ["/help", "명령어 목록 보기"],
+        ["/init", "CLAUDE.md 프로젝트 파일 초기화"],
+        ["/doctor", "설치 상태 점검"],
+        ["/cost", "세션 토큰 사용량 및 비용 보기"],
+        ["/compact", "대화 컨텍스트 압축"],
+        ["/model", "사용 가능한 모델 보기"],
+        ["/diff", "커밋되지 않은 변경사항 보기"],
+        ["/status", "버전, 모델, 계정 정보"],
+        ["/config", "설정 탐색기 열기"],
+        ["/memory", "자동 메모리 항목 보기"],
+        ["/clear", "터미널 출력 지우기"]
+      ],
+      "tip": "팁: 화살표 키로 명령어 히스토리를 탐색할 수 있습니다."
+    },
+    "init": {
+      "scanning": "프로젝트 구조 스캔 중...",
+      "found": "발견: package.json, tsconfig.json, src/",
+      "generating": "프로젝트 컨텍스트 생성 중...",
+      "created": "CLAUDE.md 생성됨",
+      "lines": [
+        "  # Project: my-project",
+        "  ",
+        "  ## Tech Stack",
+        "  - TypeScript + React",
+        "  - Vite for bundling",
+        "  - Tailwind CSS",
+        "  ",
+        "  ## Conventions",
+        "  - Use functional components",
+        "  - Prefer named exports",
+        "  - Tests in __tests__/ directories"
+      ],
+      "success": "CLAUDE.md가 성공적으로 생성되었습니다. Claude가 이 파일을 프로젝트 컨텍스트로 사용합니다."
+    },
+    "doctor": {
+      "heading": "진단 실행 중...",
+      "checks": [
+        ["인증", "user@example.com으로 인증됨"],
+        ["모델 접근", "claude-opus-4-6 사용 가능"],
+        ["Git 저장소", "클린 워킹 트리"],
+        ["Node.js", "v22.1.0"],
+        ["MCP 서버", "2개 연결됨 (filesystem, github)"],
+        ["권한", "settings.json 로드됨"],
+        ["CLAUDE.md", "프로젝트 루트에서 발견"]
+      ],
+      "success": "모든 검사를 통과했습니다. Claude Code가 준비되었습니다."
+    },
+    "cost": {
+      "heading": "세션 사용량",
+      "inputTokens": "입력 토큰",
+      "outputTokens": "출력 토큰",
+      "cacheRead": "캐시 읽기",
+      "cacheWrite": "캐시 쓰기",
+      "totalCost": "총 비용",
+      "messages": "메시지",
+      "duration": "소요 시간"
+    },
+    "compact": {
+      "compressing": "대화 컨텍스트 압축 중...",
+      "before": "압축 전",
+      "after": "압축 후",
+      "reduction": "감소율",
+      "success": "컨텍스트가 압축되었습니다. 대화 요약이 보존됩니다."
+    },
+    "model": {
+      "heading": "사용 가능한 모델",
+      "models": [
+        ["claude-opus-4-6", "최고 성능, 심층 추론"],
+        ["claude-sonnet-4-6", "빠르고 균형 잡힌 성능"],
+        ["claude-haiku-4-5", "가장 빠른, 경량 작업용"]
+      ],
+      "tip": "활성 모델은 <span class=\"term-text--accent\">\u25cf</span>로 표시됩니다. <span class=\"term-text--accent\">/model &lt;이름&gt;</span>으로 전환하세요."
+    },
+    "diff": {
+      "checking": "커밋되지 않은 변경사항 확인 중...",
+      "filesChanged": "변경된 파일",
+      "insertions": "추가",
+      "deletions": "삭제"
+    },
+    "status": {
+      "heading": "Claude Code 상태",
+      "version": "버전",
+      "modelLabel": "모델",
+      "account": "계정",
+      "plan": "플랜",
+      "planValue": "Max (5배 사용량)",
+      "projectLabel": "프로젝트",
+      "workingDir": "작업 디렉토리",
+      "workingDirValue": "~/code/my-project",
+      "mcpServers": "MCP 서버",
+      "mcpServersValue": "2개 연결됨",
+      "claudeMd": "CLAUDE.md",
+      "claudeMdValue": "로드됨",
+      "permissions": "권한",
+      "permissionsValue": "기본 + 3개 커스텀"
+    },
+    "config": {
+      "opening": "설정 열기..."
+    },
+    "memory": {
+      "heading": "자동 메모리 항목",
+      "source": "경로: ~/.claude/projects/.../memory/MEMORY.md",
+      "entries": [
+        "사용자는 클래스보다 함수형 컴포넌트 선호",
+        "항상 --coverage 플래그로 테스트 실행",
+        "프로젝트는 npm이 아닌 pnpm 사용",
+        "default export보다 named export 선호",
+        "에러 메시지는 기술적이지 않고 사용자 친화적으로"
+      ],
+      "footer": "5개 항목. <span class=\"term-text--accent\">/memory --edit</span>로 편집"
+    },
+    "error": {
+      "unknown": "알 수 없는 명령어:",
+      "tip": "<span class=\"term-text--accent\">/help</span>를 입력하여 사용 가능한 명령어를 확인하세요."
+    }
+  },
+  "manifest": {
+    "badges": {
+      "memory": "메모리",
+      "commands": "명령어",
+      "config": "설정",
+      "mcp": "MCP",
+      "skill": "스킬",
+      "agents": "에이전트",
+      "plugins": "플러그인",
+      "marketplace": "마켓플레이스",
+      "hooks": "훅",
+      "code": "코드"
+    },
+    "features": {
+      "claude-md": {
+        "title": "CLAUDE.md",
+        "description": "Claude가 세션 간 컨텍스트를 기억하는 방법. 프로젝트의 영구 메모리."
+      },
+      "settings": {
+        "title": "설정 및 권한",
+        "description": "Claude의 동작, 도구 접근, 안전 가드레일을 설정합니다."
+      },
+      "commands": {
+        "title": "커스텀 슬래시 명령어",
+        "description": "키 하나로 실행할 수 있는 저장된 워크플로우."
+      },
+      "skills": {
+        "title": "스킬",
+        "description": "Claude에게 필요할 때 자동으로 로드되는 전문 지식을 가르칩니다."
+      },
+      "mcp": {
+        "title": "MCP 서버",
+        "description": "표준 프로토콜을 통해 Claude를 외부 도구, API, 서비스에 연결합니다."
+      },
+      "hooks": {
+        "title": "훅",
+        "description": "Claude의 도구 호출 전후에 자동으로 커스텀 스크립트를 실행합니다."
+      },
+      "agents": {
+        "title": "에이전트",
+        "description": "전문화된 서브에이전트를 만들고 병렬 작업을 위한 에이전트 팀을 조율합니다."
+      },
+      "plugins": {
+        "title": "플러그인",
+        "description": "스킬, 에이전트, 훅, MCP 서버를 공유 가능한 확장 기능으로 패키징합니다."
+      },
+      "marketplaces": {
+        "title": "마켓플레이스",
+        "description": "큐레이팅된 카탈로그를 통해 플러그인을 배포하고 발견합니다."
+      }
+    },
+    "nodes": {
+      ".claude/settings.json": {
+        "label": "설정 및 권한",
+        "description": "Claude가 할 수 있는 것과 없는 것을 제어합니다 - 도구 권한, 안전 규칙, 동작 설정."
+      },
+      ".claude/commands/COMMANDS.md": {
+        "label": "명령어 (지원 종료)",
+        "description": "원래의 슬래시 명령어 시스템과 스킬로 통합된 과정을 알아보세요."
+      },
+      ".claude/commands/my-command/my-command.md": {
+        "label": "명령어 파일 스캐폴딩",
+        "description": "프롬프트 템플릿 형식과 $ARGUMENTS 작동 방식을 보여주는 시작 명령어 파일."
+      },
+      ".claude/skills/SKILLS.md": {
+        "label": "스킬이란?",
+        "description": "스킬이 무엇인지, 어떻게 만드는지, Claude가 자동으로 발견하고 로드하는 방법을 배웁니다."
+      },
+      ".claude/skills/my-skill/SKILL.md": {
+        "label": "SKILL.md - 스킬 정의",
+        "description": "모든 frontmatter 필드, 본문 섹션, 변수가 주석된 시작용 SKILL.md."
+      },
+      ".claude/skills/my-skill/scripts/helper.sh": {
+        "label": "scripts/ - 실행 가능한 코드",
+        "description": "scripts/ 디렉토리는 Claude가 스킬 지시를 따를 때 실행하는 코드를 담습니다."
+      },
+      ".claude/skills/my-skill/references/REFERENCE.md": {
+        "label": "references/ - 상세 문서",
+        "description": "references/ 디렉토리는 Claude가 필요시 로드하는 상세 문서를 담습니다."
+      },
+      ".claude/skills/my-skill/assets/template.md": {
+        "label": "assets/ - 정적 리소스",
+        "description": "assets/ 디렉토리는 템플릿, 스키마, 데이터 파일 등 정적 리소스를 담습니다."
+      },
+      ".claude/agents/AGENTS.md": {
+        "label": "에이전트 개요",
+        "description": "서브에이전트, 에이전트 팀, 전문 작업을 위한 커스텀 에이전트 생성 방법을 배웁니다."
+      },
+      ".claude/agents/my-agent/my-agent.md": {
+        "label": "에이전트 파일 스캐폴딩",
+        "description": "YAML frontmatter 설정과 시스템 프롬프트 구조를 보여주는 시작용 에이전트 파일."
+      },
+      ".claude/hooks/HOOKS.md": {
+        "label": "훅 개요",
+        "description": "훅이 Claude의 동작을 가로채서 검증, 포맷팅, 안전 검사를 수행하는 방법을 배웁니다."
+      },
+      ".claude/hooks/my-hook/my-hook.sh": {
+        "label": "훅 스크립트 스캐폴딩",
+        "description": "JSON 입력을 읽고, 조건을 확인하고, 결정을 반환하는 방법을 보여주는 시작용 훅 스크립트."
+      },
+      ".claude/plugins/PLUGINS.md": {
+        "label": "플러그인이란?",
+        "description": "플러그인이 스킬, 에이전트, 훅, MCP 서버를 공유 가능한 확장 기능으로 패키징하는 방법을 배웁니다."
+      },
+      ".claude/plugins/my-plugin/.claude-plugin/plugin.json": {
+        "label": "플러그인 매니페스트",
+        "description": "plugin.json 매니페스트는 플러그인의 ID, 버전, 메타데이터를 정의합니다."
+      },
+      ".claude/plugins/MARKETPLACES.md": {
+        "label": "플러그인 마켓플레이스",
+        "description": "팀과 커뮤니티를 위한 플러그인 카탈로그를 만들고, 호스팅하고, 배포하는 방법을 배웁니다."
+      },
+      ".claude/plugins/my-marketplace/.claude-plugin/marketplace.json": {
+        "label": "마켓플레이스 카탈로그",
+        "description": "marketplace.json 파일은 플러그인 목록과 가져올 위치를 나열합니다."
+      },
+      "src/index.ts": {
+        "label": "진입점",
+        "description": "애플리케이션 진입점 - 프로젝트에 컨텍스트를 제공하는 데모 소스 파일."
+      },
+      "CLAUDE.md": {
+        "label": "프로젝트 메모리",
+        "description": "Claude가 매 세션 시작 시 읽는 파일. 프로젝트의 영구 메모리."
+      },
+      ".mcp.json": {
+        "label": "MCP 설정",
+        "description": "Model Context Protocol을 통해 Claude를 외부 도구, API, 서비스에 연결합니다."
+      }
+    }
+  }
+}

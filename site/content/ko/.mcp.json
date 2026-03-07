@@ -1,0 +1,82 @@
+{
+  // .mcp.json — 프로젝트 범위 MCP 설정
+  //
+  // MCP (Model Context Protocol)는 Claude를 외부 도구,
+  // API, 데이터 소스에 연결합니다. 각 "서버"는 Claude가
+  // 세션 중에 발견하고 호출할 수 있는 도구 세트를 노출합니다.
+  //
+  // 이 파일은 프로젝트 루트에 위치합니다. 버전 관리에 커밋하여
+  // 모든 팀원이 동일한 도구 설정을 받을 수 있게 하세요.
+  //
+  // 세 가지 서버 유형이 지원됩니다:
+  //   "http"    — 원격 HTTP 서버 (원격 도구에 권장)
+  //   "command" — 로컬 stdio 프로세스 (세션당 생성)
+  //   "url"     — SSE 엔드포인트 (지원 종료, http 사용 권장)
+  //
+  // 이 파일을 직접 편집하는 대신 CLI에서 서버를 설치하세요:
+  //   claude mcp add my-server -s project -- npx some-mcp-package
+  //
+  // 범위(scope)는 각 서버의 가시성을 제어합니다:
+  //   -s local    — 이 머신의 본인만 (~/.claude.json)
+  //   -s project  — 프로젝트의 모든 사람 (.mcp.json, 커밋됨)
+  //   -s user     — 본인만, 모든 프로젝트 (~/.claude/settings.json)
+  //
+  // 세션에서 /mcp 슬래시 명령어로 서버를 관리하세요.
+
+  "mcpServers": {
+
+    // ── HTTP 서버 (원격 서비스에 권장) ──────────
+    // 원격 HTTP 엔드포인트에 연결합니다. 서버가 인증을
+    // 요구하면 OAuth를 지원합니다. Claude가 흐름을 처리합니다.
+    "my-remote-service": {
+      "type": "http",
+      "url": "https://my-service.example.com/mcp"
+    },
+
+    // ── stdio 서버 (로컬 도구용) ─────────────────────────
+    // 로컬 프로세스를 생성합니다. Claude는 stdin/stdout으로 통신합니다.
+    // 대부분의 npm/pip MCP 패키지가 이 전송 방식을 사용합니다.
+    "my-local-tool": {
+      "command": "npx",
+      "args": ["-y", "@example/mcp-server-tool"],
+      "env": {
+        // 환경 변수는 확장 구문을 지원합니다:
+        //   ${env:VAR}            — 셸 환경에서 읽기
+        //   ${env:VAR:-default}   — 미설정 시 "default"로 폴백
+        "API_KEY": "${env:MY_TOOL_API_KEY}",
+        "DATABASE_URL": "${env:DATABASE_URL:-postgresql://localhost:5432/mydb}"
+      },
+      // 선택사항: 생성되는 프로세스의 작업 디렉토리 설정
+      "cwd": "/path/to/working/directory"
+    },
+
+    // ── 실제 사용 예시 ────────────────────────────────────
+    // 추가할 수 있는 인기 커뮤니티 서버:
+    //
+    //   claude mcp add github -s project -- npx -y @modelcontextprotocol/server-github
+    //   claude mcp add postgres -s local -- npx -y @modelcontextprotocol/server-postgres
+    //   claude mcp add sentry -s project -- npx -y @sentry/mcp-server-sentry
+    //
+    // 사용 가능한 서버 탐색: https://github.com/modelcontextprotocol/servers
+
+    // ── Tool Search ────────────────────────────────────────────
+    // MCP 서버가 많은 도구를 노출할 때, Claude는 모두 로드하는 대신
+    // Tool Search를 사용하여 적절한 도구를 찾습니다.
+    // 30개 이상의 도구가 있는 서버에서 자동으로 작동합니다. 조정하려면:
+    //
+    //   "toolSearch": {
+    //     "enabled": "auto",        — "auto" (기본값), true, 또는 false
+    //     "threshold": 30           — 검색을 트리거하는 도구 수
+    //   }
+
+    // ── MCP 리소스 ──────────────────────────────────────────
+    // 일부 서버는 데이터를 리소스(문서, 스키마 등)로 노출합니다.
+    // 프롬프트에서 @server-name:resource-id로 참조하여
+    // 해당 데이터를 컨텍스트에 가져올 수 있습니다.
+
+    // ── MCP 프롬프트 ────────────────────────────────────────
+    // 서버는 슬래시 명령어로 나타나는 재사용 가능한 프롬프트
+    // 템플릿을 노출할 수 있습니다. 세션에서 /mcp를 실행하여
+    // 사용 가능한 프롬프트를 확인하세요.
+  }
+}

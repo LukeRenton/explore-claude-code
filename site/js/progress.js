@@ -49,7 +49,7 @@ class ProgressTracker {
 
     // Win98 progress text
     const win98Text = document.getElementById('win98-progress-text');
-    if (win98Text) win98Text.textContent = `${count}/${total} features`;
+    if (win98Text) win98Text.textContent = `${count}/${total} ${I18n.t('ui.features')}`;
   }
 
   /** Load from localStorage */

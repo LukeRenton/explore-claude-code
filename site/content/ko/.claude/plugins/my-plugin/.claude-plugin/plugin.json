@@ -1,0 +1,66 @@
+{
+  // .claude-plugin/plugin.json — 플러그인 매니페스트
+  //
+  // 이 파일은 플러그인의 정체성을 정의합니다. Claude Code는 이를 사용하여
+  // 플러그인 관리자에서 플러그인을 표시하고, 스킬에 네임스페이스를 지정하고,
+  // 업데이트를 위해 버전을 추적합니다.
+  //
+  // .claude-plugin/ 안에 들어가는 유일한 파일입니다.
+  // 모든 컴포넌트 디렉토리(skills/, agents/, hooks/ 등)는
+  // 이 디렉토리가 아닌 플러그인 루트에 위치합니다.
+
+  // ── 필수 필드 ────────────────────────────────────────────────
+
+  // 고유 식별자. 스킬 네임스페이스 접두사로도 사용됩니다.
+  // 이 플러그인의 "review" 스킬 → /my-plugin:review
+  "name": "my-plugin",
+
+  // 플러그인 관리자에서 탐색하거나 설치할 때 표시됩니다.
+  "description": "매니페스트 형식과 사용 가능한 필드를 보여주는 스타터 플러그인",
+
+  // 시맨틱 버전관리: major.minor.patch
+  // 호환성 깨지는 변경은 major, 새 기능은 minor, 수정은 patch를 올립니다.
+  // Claude Code는 이를 사용하여 업데이트를 감지합니다.
+  "version": "1.0.0",
+
+  // ── 선택적 메타데이터 ────────────────────────────────────────
+
+  // 기여자 표시. 플러그인 상세에서 표시됩니다.
+  "author": {
+    "name": "Your Name",
+    "email": "you@example.com"
+  },
+
+  // 플러그인 문서 URL
+  "homepage": "https://github.com/your-org/my-plugin#readme",
+
+  // 소스 코드 저장소
+  "repository": "https://github.com/your-org/my-plugin",
+
+  // SPDX 라이선스 식별자 (MIT, Apache-2.0 등)
+  "license": "MIT",
+
+  // 마켓플레이스에서 발견 및 분류를 위한 태그
+  "keywords": ["starter", "example", "scaffold"]
+
+  // ── 컴포넌트 오버라이드 (고급) ───────────────────────────────
+  //
+  // 기본적으로 Claude Code는 플러그인 루트의 표준 디렉토리를
+  // 스캔하여 컴포넌트를 발견합니다:
+  //   skills/    → Agent Skills
+  //   commands/  → 슬래시 커맨드
+  //   agents/    → 커스텀 에이전트
+  //   hooks/     → hooks.json 이벤트 핸들러
+  //   .mcp.json  → MCP 서버 설정
+  //   .lsp.json  → LSP 서버 설정
+  //
+  // 명시적 경로로 오버라이드할 수 있습니다:
+  //
+  //   "commands": ["./commands/core/", "./commands/extra/review.md"],
+  //   "agents": ["./agents/security-reviewer.md"],
+  //   "hooks": { "PostToolUse": [...] },
+  //   "mcpServers": { "my-db": { "command": "..." } },
+  //   "lspServers": { "go": { "command": "gopls" } }
+  //
+  // 대부분의 플러그인은 이것이 필요 없습니다 — 기본값으로 충분합니다.
+}

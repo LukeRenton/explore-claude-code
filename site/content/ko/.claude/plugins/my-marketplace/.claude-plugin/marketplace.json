@@ -1,0 +1,92 @@
+{
+  // .claude-plugin/marketplace.json — 마켓플레이스 카탈로그
+  //
+  // 이 파일은 플러그인 마켓플레이스를 정의합니다: 플러그인을 나열하고
+  // Claude Code에게 어디서 가져올지 알려주는 카탈로그입니다.
+  // git 저장소에 호스팅하고 팀이나 커뮤니티와 공유하세요.
+  //
+  // 사용자가 마켓플레이스를 추가합니다:
+  //   /plugin marketplace add owner/repo
+  //
+  // 그런 다음 개별 플러그인을 설치합니다:
+  //   /plugin install review-plugin@my-marketplace
+
+  // ── 마켓플레이스 정체성 ──────────────────────────────────────
+
+  // 공개용 이름 (kebab-case). 사용자가 설치 시 보는 이름:
+  //   /plugin install <plugin>@my-marketplace
+  "name": "my-marketplace",
+
+  // 이 마켓플레이스를 관리하는 사람
+  "owner": {
+    "name": "Your Team",
+    "email": "team@example.com"
+  },
+
+  // ── 선택적 메타데이터 ────────────────────────────────────────
+  "metadata": {
+    "description": "카탈로그 형식을 보여주는 스타터 마켓플레이스",
+    "version": "1.0.0",
+
+    // 상대적 플러그인 소스의 기본 디렉토리.
+    // 이를 설정하면 "source": "review-plugin"이 "./plugins/review-plugin"으로 해석됩니다
+    "pluginRoot": "./plugins"
+  },
+
+  // ── 플러그인 카탈로그 ────────────────────────────────────────
+  //
+  // 각 항목에는 최소한 name과 source가 필요합니다.
+  // plugin.json 스키마의 모든 필드를 포함할 수도 있습니다.
+
+  "plugins": [
+
+    // ── 상대 경로 소스 ─────────────────────────────────────────
+    // 마켓플레이스와 같은 저장소에 플러그인이 있습니다.
+    // 자체 완결형 마켓플레이스를 위한 가장 간단한 옵션입니다.
+    {
+      "name": "review-plugin",
+      "source": "./plugins/review-plugin",
+      "description": "빠른 코드 리뷰를 위한 /review 스킬을 추가합니다",
+      "version": "1.0.0"
+    },
+
+    // ── GitHub 소스 ────────────────────────────────────────────
+    // 별도의 GitHub 저장소에 플러그인이 있습니다.
+    // ref (브랜치/태그)와 sha (정확한 커밋) 고정을 지원합니다.
+    {
+      "name": "deploy-tools",
+      "source": {
+        "source": "github",
+        "repo": "your-org/deploy-plugin",
+        "ref": "v2.0.0"
+      },
+      "description": "배포 자동화 및 환경 관리",
+      "category": "devops",
+      "tags": ["deploy", "ci", "automation"]
+    },
+
+    // ── npm 소스 ───────────────────────────────────────────────
+    // npm 패키지로 배포되는 플러그인입니다.
+    // 버전 범위와 커스텀 레지스트리를 지원합니다.
+    {
+      "name": "lint-plugin",
+      "source": {
+        "source": "npm",
+        "package": "@your-org/claude-lint-plugin",
+        "version": "^1.0.0"
+      },
+      "description": "JavaScript와 TypeScript를 위한 자동 린팅 훅"
+    }
+
+    // 기타 소스 유형:
+    //
+    //   Git URL:
+    //   { "source": "url", "url": "https://gitlab.com/team/plugin.git" }
+    //
+    //   Git 하위 디렉토리 (모노레포를 위한 sparse clone):
+    //   { "source": "git-subdir", "url": "https://...", "path": "tools/plugin" }
+    //
+    //   pip:
+    //   { "source": "pip", "package": "my-plugin" }
+  ]
+}

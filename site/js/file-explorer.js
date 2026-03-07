@@ -79,7 +79,7 @@ class FileExplorer {
       item.classList.add('tree-item--deprecated');
       const dep = document.createElement('span');
       dep.className = 'tree-badge tree-badge--deprecated';
-      dep.textContent = 'deprecated';
+      dep.textContent = I18n.t('ui.deprecated');
       item.appendChild(dep);
     }
 
