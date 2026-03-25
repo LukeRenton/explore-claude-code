@@ -107,6 +107,14 @@ const Icons = {
     </svg>`;
   },
 
+  featureRules(size = 20) {
+    return `<svg width="${size}" height="${size}" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+      <rect x="3" y="2" width="14" height="16" rx="1.5" stroke-width="1.3"/>
+      <path d="M7 2v16" stroke-width="1" opacity="0.4"/>
+      <path d="M9 6h5M9 9h4M9 12h5M9 15h3" stroke-width="1.2" stroke-linecap="round"/>
+    </svg>`;
+  },
+
   featureHooks(size = 20) {
     return `<svg width="${size}" height="${size}" viewBox="0 0 20 20" fill="none" stroke="currentColor">
       <path d="M10 3v4" stroke-width="1.3" stroke-linecap="round"/>
@@ -159,6 +167,7 @@ const Icons = {
     const map = {
       'claude-md': this.featureClaudeMd,
       'settings': this.featureSettings,
+      'rules': this.featureRules,
       'commands': this.featureCommands,
       'skills': this.featureSkills,
       'mcp': this.featureMcp,

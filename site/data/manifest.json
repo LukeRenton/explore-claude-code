@@ -33,6 +33,10 @@
       "label": "marketplace",
       "color": "#7a8b5e"
     },
+    "rules": {
+      "label": "rules",
+      "color": "#9a7e8e"
+    },
     "hooks": {
       "label": "hooks",
       "color": "#ad6e5e"
@@ -61,51 +65,56 @@
       "description": "Configure Claude's behaviour, tool access, and safety guardrails.",
       "order": 2
     },
+    "rules": {
+      "title": "Rules",
+      "description": "Contextual conventions Claude loads automatically based on the files you're editing.",
+      "order": 3
+    },
     "commands": {
       "title": "Custom Slash Commands",
       "description": "Saved workflows you can invoke with a keystroke.",
-      "order": 3,
+      "order": 4,
       "deprecated": true
     },
     "skills": {
       "title": "Skills",
       "description": "Teach Claude specialised knowledge it loads autonomously when needed.",
-      "order": 4
+      "order": 5
     },
     "mcp": {
       "title": "MCP Servers",
       "description": "Connect Claude to external tools, APIs, and services via a standard protocol.",
-      "order": 5
+      "order": 6
     },
     "hooks": {
       "title": "Hooks",
       "description": "Run custom scripts automatically before or after Claude's tool calls.",
-      "order": 6
+      "order": 7
     },
     "agents": {
       "title": "Agents",
       "description": "Create specialised subagents and coordinate agent teams for parallel work.",
-      "order": 7
+      "order": 8
     },
     "plugins": {
       "title": "Plugins",
       "description": "Package skills, agents, hooks, and MCP servers into shareable extensions.",
-      "order": 8
+      "order": 9
     },
     "marketplaces": {
       "title": "Marketplaces",
       "description": "Distribute and discover plugins through curated catalogues.",
-      "order": 9
+      "order": 10
     },
     "bundled-skills": {
       "title": "Bundled Skills",
       "description": "Prompt-based workflows that ship with every Claude Code session.",
-      "order": 10
+      "order": 11
     },
     "built-in-commands": {
       "title": "Built-in Commands",
       "description": "Slash commands baked into Claude Code that execute fixed logic directly.",
-      "order": 11
+      "order": 12
     }
   },
   "tree": [
@@ -123,6 +132,34 @@
           "label": "Settings & Permissions",
           "description": "Controls what Claude can and can't do - tool permissions, safety rules, and behaviour.",
           "contentFile": ".claude/settings.json"
+        },
+        {
+          "name": "rules",
+          "path": ".claude/rules",
+          "type": "directory",
+          "badge": "rules",
+          "children": [
+            {
+              "name": "RULES.md",
+              "path": ".claude/rules/RULES.md",
+              "type": "file",
+              "feature": "rules",
+              "badge": "rules",
+              "label": "What Are Rules?",
+              "description": "Learn how rules provide contextual conventions Claude loads based on the files you're editing.",
+              "contentFile": ".claude/rules/RULES.md"
+            },
+            {
+              "name": "my-rule.md",
+              "path": ".claude/rules/my-rule.md",
+              "type": "file",
+              "feature": "rules",
+              "badge": "rules",
+              "label": "Rule File Scaffolding",
+              "description": "A starter rule file showing glob frontmatter and convention content patterns.",
+              "contentFile": ".claude/rules/my-rule.md"
+            }
+          ]
         },
         {
           "name": "commands",
