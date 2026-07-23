@@ -94,6 +94,7 @@
 .tree-badge--builtin { background: rgba(125, 138, 152, 0.12); color: var(--badge-builtin); }
 .tree-badge--cli { background: rgba(142, 130, 173, 0.12); color: var(--badge-cli); }
 .tree-badge--mode { background: rgba(109, 148, 166, 0.12); color: var(--badge-mode); }
+.tree-badge--context { background: rgba(125, 148, 136, 0.12); color: var(--badge-context); }
 
 /* Separator — visual divider between project config and built-in features */
 .tree-separator {

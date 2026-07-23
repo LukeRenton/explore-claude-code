@@ -56,6 +56,10 @@
     "mode": {
       "label": "mode",
       "color": "#6d94a6"
+    },
+    "context": {
+      "label": "context",
+      "color": "#7d9488"
     }
   },
   "features": {
@@ -129,6 +133,11 @@
       "title": "Auto Memory",
       "description": "How Claude writes notes to itself across sessions and reads them back. The counterpart to CLAUDE.md.",
       "order": 14
+    },
+    "context": {
+      "title": "Context & Thinking",
+      "description": "What fills Claude's context window, how to inspect and reclaim it, and how to control how hard Claude thinks.",
+      "order": 15
     }
   },
   "tree": [
@@ -585,6 +594,41 @@
               "label": "Auto Memory",
               "description": "How Claude writes notes to itself across sessions and reads them back. The counterpart to CLAUDE.md.",
               "contentFile": "built-in/auto-memory/AUTO-MEMORY.md"
+            }
+          ]
+        },
+        {
+          "name": "context",
+          "path": "built-in/context",
+          "type": "directory",
+          "badge": "context",
+          "children": [
+            {
+              "name": "CONTEXT.md",
+              "path": "built-in/context/CONTEXT.md",
+              "type": "file",
+              "feature": "context",
+              "badge": "context",
+              "label": "The Context Window",
+              "description": "What loads into context, how to see it with /context, and how /compact reclaims space.",
+              "contentFile": "built-in/context/CONTEXT.md"
+            },
+            {
+              "name": "thinking",
+              "path": "built-in/context/thinking",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "thinking.md",
+                  "path": "built-in/context/thinking/thinking.md",
+                  "type": "file",
+                  "feature": "context",
+                  "badge": "context",
+                  "label": "Extended Thinking",
+                  "description": "Effort levels, ultrathink, and how to control how deeply Claude reasons.",
+                  "contentFile": "built-in/context/thinking/thinking.md"
+                }
+              ]
             }
           ]
         },

@@ -169,6 +169,15 @@ const Icons = {
     </svg>`;
   },
 
+  featureContext(size = 20) {
+    return `<svg width="${size}" height="${size}" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+      <rect x="2.5" y="4" width="15" height="12" rx="1.5" stroke-width="1.3"/>
+      <path d="M2.5 8h15" stroke-width="1.1"/>
+      <path d="M8 8v8M13 8v8" stroke-width="1.1" opacity="0.7"/>
+      <rect x="3.5" y="9" width="3.5" height="6" fill="currentColor" stroke="none" opacity="0.35"/>
+    </svg>`;
+  },
+
   // ── Utility ────────────────────────────────────────────────
 
   /** Get file icon based on extension */
@@ -195,6 +204,7 @@ const Icons = {
       'bundled-skills': this.featureBundledSkills,
       'modes': this.featureModes,
       'auto-memory': this.featureAutoMemory,
+      'context': this.featureContext,
     };
     const fn = map[id];
     return fn ? fn.call(this, size) : this.fileGeneric(size);

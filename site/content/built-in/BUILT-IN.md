@@ -19,6 +19,10 @@ How much Claude does on its own before checking with you. Cycle them with `Shift
 
 Notes Claude writes to itself across sessions, build commands, debugging insights, and preferences it discovers. The counterpart to the CLAUDE.md files you write. Managed with `/memory`.
 
+### Context & Thinking
+
+What fills Claude's context window, how to inspect it with `/context`, and how to reclaim space with `/compact`. Plus effort levels and `ultrathink` for controlling how deeply Claude reasons.
+
 ### Bundled Skills
 
 Prompt-based workflows available in every Claude Code session. Unlike the custom skills you create in `.claude/skills/`, these are maintained by Anthropic and work out of the box.
