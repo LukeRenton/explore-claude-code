@@ -2,6 +2,7 @@
 name: core-planner
 description: Strategic planner that validates and shapes ideas into actionable specs before implementation. Use when a brainstorm or feature idea needs to be pressure-tested, scoped, and turned into a clear specification with success criteria and UATs. Sits between brainstorming and technical planning.
 model: opus
+color: blue
 tools: Read, Grep, Glob, Write
 memory: project
 ---

@@ -33,6 +33,7 @@ Ask only what's missing. Never re-ask what's already clear. Cover these areas as
 - **MCP servers**: Any external tool servers needed?
 - **Hooks**: Any lifecycle hooks (PreToolUse, PostToolUse, Stop)?
 - **Team membership**: Is this a standalone agent or joining the core team?
+- **Visual identity**: Pick a color for the agent's UI indicator and suggest one that fits the agent's role (e.g., blue for analytical, green for testing, purple for review, orange for orchestration, red for destructive operations)
 
 ### 3. Check for Overlap
 
@@ -47,6 +48,7 @@ Write the agent markdown file following these structural principles:
 name
 description
 model
+color
 tools
 disallowedTools
 permissionMode
@@ -98,6 +100,7 @@ Before showing the user, review the draft against this checklist:
 - [ ] No significant overlap with existing agents (or overlap acknowledged)
 - [ ] Tool access is appropriately scoped (not overly broad)
 - [ ] Model choice is justified for the agent's workload
+- [ ] Color is set and appropriate for the agent's role
 
 If any check fails, fix it before presenting.
 
@@ -116,6 +119,7 @@ On approval:
 Created: .claude/agents/<name>.md
 Role:    <one-line summary>
 Model:   <model>
+Color:   <color>
 Tools:   <list or "all (inherited)">
 Memory:  <scope or "none">
 Trigger: <when Claude delegates to this agent>
