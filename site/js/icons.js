@@ -152,6 +152,14 @@ const Icons = {
     </svg>`;
   },
 
+  featureModes(size = 20) {
+    return `<svg width="${size}" height="${size}" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+      <rect x="2.5" y="6.5" width="15" height="7" rx="3.5" stroke-width="1.3"/>
+      <circle cx="13" cy="10" r="2" fill="currentColor" stroke="none"/>
+      <path d="M6 10h2" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+    </svg>`;
+  },
+
   // ── Utility ────────────────────────────────────────────────
 
   /** Get file icon based on extension */
@@ -176,6 +184,7 @@ const Icons = {
       'plugins': this.featurePlugins,
       'marketplaces': this.featureMarketplaces,
       'bundled-skills': this.featureBundledSkills,
+      'modes': this.featureModes,
     };
     const fn = map[id];
     return fn ? fn.call(this, size) : this.fileGeneric(size);

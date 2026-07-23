@@ -52,6 +52,10 @@
     "cli": {
       "label": "slash command",
       "color": "#8e82ad"
+    },
+    "mode": {
+      "label": "mode",
+      "color": "#6d94a6"
     }
   },
   "features": {
@@ -115,6 +119,11 @@
       "title": "Built-in Commands",
       "description": "Slash commands baked into Claude Code that execute fixed logic directly.",
       "order": 12
+    },
+    "modes": {
+      "title": "Modes",
+      "description": "Control how much Claude does on its own: review each action, accept edits, plan first, or hand off with safety checks.",
+      "order": 13
     }
   },
   "tree": [
@@ -486,6 +495,75 @@
           "label": "What Are Built-ins?",
           "description": "Features that ship with Claude Code and require no setup.",
           "contentFile": "built-in/BUILT-IN.md"
+        },
+        {
+          "name": "modes",
+          "path": "built-in/modes",
+          "type": "directory",
+          "badge": "mode",
+          "children": [
+            {
+              "name": "MODES.md",
+              "path": "built-in/modes/MODES.md",
+              "type": "file",
+              "feature": "modes",
+              "badge": "mode",
+              "label": "Modes Overview",
+              "description": "How much Claude does on its own: manual review, accept edits, plan first, or hand off with safety checks.",
+              "contentFile": "built-in/modes/MODES.md"
+            },
+            {
+              "name": "permission-modes",
+              "path": "built-in/modes/permission-modes",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "permission-modes.md",
+                  "path": "built-in/modes/permission-modes/permission-modes.md",
+                  "type": "file",
+                  "feature": "modes",
+                  "badge": "mode",
+                  "label": "Permission Modes",
+                  "description": "Manual, Accept Edits, Don't Ask, and Bypass Permissions, plus the rules and protected paths that apply on top.",
+                  "contentFile": "built-in/modes/permission-modes/permission-modes.md"
+                }
+              ]
+            },
+            {
+              "name": "plan-mode",
+              "path": "built-in/modes/plan-mode",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "plan-mode.md",
+                  "path": "built-in/modes/plan-mode/plan-mode.md",
+                  "type": "file",
+                  "feature": "modes",
+                  "badge": "mode",
+                  "label": "Plan Mode",
+                  "description": "Research and propose changes without editing, then approve the plan before Claude touches your code.",
+                  "contentFile": "built-in/modes/plan-mode/plan-mode.md"
+                }
+              ]
+            },
+            {
+              "name": "auto-mode",
+              "path": "built-in/modes/auto-mode",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "auto-mode.md",
+                  "path": "built-in/modes/auto-mode/auto-mode.md",
+                  "type": "file",
+                  "feature": "modes",
+                  "badge": "mode",
+                  "label": "Auto Mode",
+                  "description": "Run without routine prompts while a background classifier reviews each action for danger.",
+                  "contentFile": "built-in/modes/auto-mode/auto-mode.md"
+                }
+              ]
+            }
+          ]
         },
         {
           "name": "bundled-skills",

@@ -6,6 +6,15 @@ This section is different. These are features that **ship with Claude Code** and
 
 ## What You'll Find Here
 
+### Modes
+
+How much Claude does on its own before checking with you. Cycle them with `Shift+Tab`.
+
+- **Manual** - review every action before it runs
+- **Accept Edits** - let Claude edit files, review afterwards
+- **Plan** - research and propose before touching code
+- **Auto** - run freely with a background safety classifier
+
 ### Bundled Skills
 
 Prompt-based workflows available in every Claude Code session. Unlike the custom skills you create in `.claude/skills/`, these are maintained by Anthropic and work out of the box.
@@ -28,7 +37,7 @@ Slash commands baked into Claude Code that run fixed logic directly. Session man
 
 ### More Coming Soon
 
-This section will grow to cover other built-in capabilities like CLI flags, permission modes, keyboard shortcuts, and the auto-memory system.
+This section will grow to cover other built-in capabilities like CLI flags, keyboard shortcuts, and the auto-memory system.
 
 ## Explore
 
