@@ -15,6 +15,10 @@ How much Claude does on its own before checking with you. Cycle them with `Shift
 - **Plan** - research and propose before touching code
 - **Auto** - run freely with a background safety classifier
 
+### Auto Memory
+
+Notes Claude writes to itself across sessions, build commands, debugging insights, and preferences it discovers. The counterpart to the CLAUDE.md files you write. Managed with `/memory`.
+
 ### Bundled Skills
 
 Prompt-based workflows available in every Claude Code session. Unlike the custom skills you create in `.claude/skills/`, these are maintained by Anthropic and work out of the box.
@@ -37,7 +41,7 @@ Slash commands baked into Claude Code that run fixed logic directly. Session man
 
 ### More Coming Soon
 
-This section will grow to cover other built-in capabilities like CLI flags, keyboard shortcuts, and the auto-memory system.
+This section will grow to cover other built-in capabilities like CLI flags and keyboard shortcuts.
 
 ## Explore
 

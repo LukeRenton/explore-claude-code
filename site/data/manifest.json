@@ -124,6 +124,11 @@
       "title": "Modes",
       "description": "Control how much Claude does on its own: review each action, accept edits, plan first, or hand off with safety checks.",
       "order": 13
+    },
+    "auto-memory": {
+      "title": "Auto Memory",
+      "description": "How Claude writes notes to itself across sessions and reads them back. The counterpart to CLAUDE.md.",
+      "order": 14
     }
   },
   "tree": [
@@ -562,6 +567,24 @@
                   "contentFile": "built-in/modes/auto-mode/auto-mode.md"
                 }
               ]
+            }
+          ]
+        },
+        {
+          "name": "auto-memory",
+          "path": "built-in/auto-memory",
+          "type": "directory",
+          "badge": "memory",
+          "children": [
+            {
+              "name": "AUTO-MEMORY.md",
+              "path": "built-in/auto-memory/AUTO-MEMORY.md",
+              "type": "file",
+              "feature": "auto-memory",
+              "badge": "memory",
+              "label": "Auto Memory",
+              "description": "How Claude writes notes to itself across sessions and reads them back. The counterpart to CLAUDE.md.",
+              "contentFile": "built-in/auto-memory/AUTO-MEMORY.md"
             }
           ]
         },
