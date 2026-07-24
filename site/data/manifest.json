@@ -920,6 +920,57 @@
                   "contentFile": "built-in/commands/rewind/rewind.md"
                 }
               ]
+            },
+            {
+              "name": "resume",
+              "path": "built-in/commands/resume",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "resume.md",
+                  "path": "built-in/commands/resume/resume.md",
+                  "type": "file",
+                  "feature": "built-in-commands",
+                  "badge": "cli",
+                  "label": "/resume",
+                  "description": "Switch to a different saved conversation, or resume one after exiting. Includes the session picker.",
+                  "contentFile": "built-in/commands/resume/resume.md"
+                }
+              ]
+            },
+            {
+              "name": "permissions",
+              "path": "built-in/commands/permissions",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "permissions.md",
+                  "path": "built-in/commands/permissions/permissions.md",
+                  "type": "file",
+                  "feature": "built-in-commands",
+                  "badge": "cli",
+                  "label": "/permissions",
+                  "description": "View and manage tool permissions: the allow, ask, and deny rules and where they live.",
+                  "contentFile": "built-in/commands/permissions/permissions.md"
+                }
+              ]
+            },
+            {
+              "name": "model",
+              "path": "built-in/commands/model",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "model.md",
+                  "path": "built-in/commands/model/model.md",
+                  "type": "file",
+                  "feature": "built-in-commands",
+                  "badge": "cli",
+                  "label": "/model",
+                  "description": "Select or switch the model by alias, including opusplan, and adjust the effort slider.",
+                  "contentFile": "built-in/commands/model/model.md"
+                }
+              ]
             }
           ]
         }
