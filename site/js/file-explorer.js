@@ -7,7 +7,7 @@ class FileExplorer {
   constructor(manifest, onFileSelect) {
     this.manifest = manifest;
     this.onFileSelect = onFileSelect;
-    this.expandedDirs = new Set(['.claude']);
+    this.expandedDirs = new Set(['.claude', 'built-in']);
     this._animating = new Set();
     this.selectedPath = null;
     this.flatFiles = [];
