@@ -96,6 +96,7 @@
 .tree-badge--mode { background: rgba(109, 148, 166, 0.12); color: var(--badge-mode); }
 .tree-badge--context { background: rgba(125, 148, 136, 0.12); color: var(--badge-context); }
 .tree-badge--keyboard { background: rgba(138, 134, 166, 0.12); color: var(--badge-keyboard); }
+.tree-badge--terminal { background: rgba(95, 142, 148, 0.12); color: var(--badge-terminal); }
 
 /* Separator — visual divider between project config and built-in features */
 .tree-separator {

@@ -32,6 +32,15 @@ The shortcuts that drive a session from the keyboard, plus how to remap any of t
 - `Ctrl+B` - background the running task
 - `Ctrl+R` - reverse-search command history
 
+### CLI & Headless
+
+How you launch `claude` from the terminal, the flags worth knowing, and `claude -p` for running Claude non-interactively in scripts and CI.
+
+- `claude -p "query"` - print a result and exit
+- `--model`, `--effort` - pick the model and how hard it thinks
+- `--permission-mode` - start in a chosen mode
+- `--output-format json` - structured output for scripts
+
 ### Bundled Skills
 
 Prompt-based workflows available in every Claude Code session. Unlike the custom skills you create in `.claude/skills/`, these are maintained by Anthropic and work out of the box.
@@ -54,7 +63,7 @@ Slash commands baked into Claude Code that run fixed logic directly. Session man
 
 ### More Coming Soon
 
-This section will grow to cover other built-in capabilities like the CLI and headless mode.
+Claude Code keeps shipping new built-in capabilities, and this section grows with them.
 
 ## Explore
 

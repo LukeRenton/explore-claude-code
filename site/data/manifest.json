@@ -64,6 +64,10 @@
     "keyboard": {
       "label": "keyboard",
       "color": "#8a86a6"
+    },
+    "terminal": {
+      "label": "CLI",
+      "color": "#5f8e94"
     }
   },
   "features": {
@@ -147,6 +151,11 @@
       "title": "Keyboard & Shortcuts",
       "description": "The shortcuts that ship with every session, how to customise them, and the vim-style prompt editor.",
       "order": 16
+    },
+    "cli": {
+      "title": "CLI & Headless",
+      "description": "How you launch claude from the terminal: interactive versus print mode, the flags that matter, and headless runs for scripts and CI.",
+      "order": 17
     }
   },
   "tree": [
@@ -705,6 +714,58 @@
                   "label": "Vim Mode",
                   "description": "The vim-style editor for your prompt input: modes, motions, and vimInsertModeRemaps.",
                   "contentFile": "built-in/keyboard/vim-mode/vim-mode.md"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "cli",
+          "path": "built-in/cli",
+          "type": "directory",
+          "badge": "terminal",
+          "children": [
+            {
+              "name": "CLI.md",
+              "path": "built-in/cli/CLI.md",
+              "type": "file",
+              "feature": "cli",
+              "badge": "terminal",
+              "label": "CLI Overview",
+              "description": "Launching claude: interactive versus print mode, and the subcommands for housekeeping.",
+              "contentFile": "built-in/cli/CLI.md"
+            },
+            {
+              "name": "flags",
+              "path": "built-in/cli/flags",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "flags.md",
+                  "path": "built-in/cli/flags/flags.md",
+                  "type": "file",
+                  "feature": "cli",
+                  "badge": "terminal",
+                  "label": "Flags",
+                  "description": "The flags that matter, grouped: session, model and effort, permissions, context, and output.",
+                  "contentFile": "built-in/cli/flags/flags.md"
+                }
+              ]
+            },
+            {
+              "name": "headless",
+              "path": "built-in/cli/headless",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "headless.md",
+                  "path": "built-in/cli/headless/headless.md",
+                  "type": "file",
+                  "feature": "cli",
+                  "badge": "terminal",
+                  "label": "Headless Mode",
+                  "description": "claude -p for scripts and CI: output formats, structured output, piping, and bare mode.",
+                  "contentFile": "built-in/cli/headless/headless.md"
                 }
               ]
             }
