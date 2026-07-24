@@ -732,6 +732,91 @@
                   "contentFile": "built-in/bundled-skills/claude-api/claude-api.md"
                 }
               ]
+            },
+            {
+              "name": "code-review",
+              "path": "built-in/bundled-skills/code-review",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "code-review.md",
+                  "path": "built-in/bundled-skills/code-review/code-review.md",
+                  "type": "file",
+                  "feature": "bundled-skills",
+                  "badge": "skill",
+                  "label": "/code-review",
+                  "description": "Reviews your current diff for correctness bugs and cleanup opportunities, with an ultra cloud escalation.",
+                  "contentFile": "built-in/bundled-skills/code-review/code-review.md"
+                }
+              ]
+            },
+            {
+              "name": "security-review",
+              "path": "built-in/bundled-skills/security-review",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "security-review.md",
+                  "path": "built-in/bundled-skills/security-review/security-review.md",
+                  "type": "file",
+                  "feature": "bundled-skills",
+                  "badge": "skill",
+                  "label": "/security-review",
+                  "description": "Checks your pending changes for security vulnerabilities before you ship.",
+                  "contentFile": "built-in/bundled-skills/security-review/security-review.md"
+                }
+              ]
+            },
+            {
+              "name": "deep-research",
+              "path": "built-in/bundled-skills/deep-research",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "deep-research.md",
+                  "path": "built-in/bundled-skills/deep-research/deep-research.md",
+                  "type": "file",
+                  "feature": "bundled-skills",
+                  "badge": "skill",
+                  "label": "/deep-research",
+                  "description": "Fans out web searches, cross-checks sources, and synthesises a cited report. A background workflow.",
+                  "contentFile": "built-in/bundled-skills/deep-research/deep-research.md"
+                }
+              ]
+            },
+            {
+              "name": "dataviz",
+              "path": "built-in/bundled-skills/dataviz",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "dataviz.md",
+                  "path": "built-in/bundled-skills/dataviz/dataviz.md",
+                  "type": "file",
+                  "feature": "bundled-skills",
+                  "badge": "skill",
+                  "label": "/dataviz",
+                  "description": "Design guidance for charts and dashboards: chart choice, colour by role, and colourblind-safe palettes.",
+                  "contentFile": "built-in/bundled-skills/dataviz/dataviz.md"
+                }
+              ]
+            },
+            {
+              "name": "run",
+              "path": "built-in/bundled-skills/run",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "run.md",
+                  "path": "built-in/bundled-skills/run/run.md",
+                  "type": "file",
+                  "feature": "bundled-skills",
+                  "badge": "skill",
+                  "label": "/run",
+                  "description": "Launches and drives your app so you can see a change working, not just passing tests.",
+                  "contentFile": "built-in/bundled-skills/run/run.md"
+                }
+              ]
             }
           ]
         },

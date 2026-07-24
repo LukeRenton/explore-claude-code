@@ -13,6 +13,11 @@ You invoke bundled skills the same way as any other skill: type `/` followed by 
 | `/debug [description]` | Reads your session's debug log to troubleshoot issues |
 | `/loop [interval] <prompt>` | Schedules a recurring cron task to re-run a prompt on an interval |
 | `/claude-api` | Loads API and SDK reference material for your project's language |
+| `/code-review` | Reviews your current diff for correctness bugs, with an `ultra` cloud escalation |
+| `/security-review` | Checks your pending changes for security vulnerabilities |
+| `/deep-research <question>` | Fans out web searches, cross-checks sources, and synthesises a cited report |
+| `/dataviz [request]` | Design guidance for charts and dashboards, with colourblind-safe palettes |
+| `/run` | Launches and drives your app so you can see a change working |
 
 ## How They Differ from Custom Skills
 
