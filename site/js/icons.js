@@ -178,6 +178,14 @@ const Icons = {
     </svg>`;
   },
 
+  featureKeyboard(size = 20) {
+    return `<svg width="${size}" height="${size}" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+      <rect x="2" y="5.5" width="16" height="9" rx="1.5" stroke-width="1.3"/>
+      <path d="M5 8h.01M8 8h.01M11 8h.01M14 8h.01M5 10.5h.01M8 10.5h.01M11 10.5h.01M14 10.5h.01" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M7 12.5h6" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>`;
+  },
+
   // ── Utility ────────────────────────────────────────────────
 
   /** Get file icon based on extension */
@@ -205,6 +213,7 @@ const Icons = {
       'modes': this.featureModes,
       'auto-memory': this.featureAutoMemory,
       'context': this.featureContext,
+      'keyboard': this.featureKeyboard,
     };
     const fn = map[id];
     return fn ? fn.call(this, size) : this.fileGeneric(size);

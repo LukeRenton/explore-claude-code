@@ -60,6 +60,10 @@
     "context": {
       "label": "context",
       "color": "#7d9488"
+    },
+    "keyboard": {
+      "label": "keyboard",
+      "color": "#8a86a6"
     }
   },
   "features": {
@@ -138,6 +142,11 @@
       "title": "Context & Thinking",
       "description": "What fills Claude's context window, how to inspect and reclaim it, and how to control how hard Claude thinks.",
       "order": 15
+    },
+    "keyboard": {
+      "title": "Keyboard & Shortcuts",
+      "description": "The shortcuts that ship with every session, how to customise them, and the vim-style prompt editor.",
+      "order": 16
     }
   },
   "tree": [
@@ -627,6 +636,75 @@
                   "label": "Extended Thinking",
                   "description": "Effort levels, ultrathink, and how to control how deeply Claude reasons.",
                   "contentFile": "built-in/context/thinking/thinking.md"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "keyboard",
+          "path": "built-in/keyboard",
+          "type": "directory",
+          "badge": "keyboard",
+          "children": [
+            {
+              "name": "KEYBOARD.md",
+              "path": "built-in/keyboard/KEYBOARD.md",
+              "type": "file",
+              "feature": "keyboard",
+              "badge": "keyboard",
+              "label": "Keyboard Overview",
+              "description": "The shortcuts that ship with every session, plus the prefixes that change the input and platform notes.",
+              "contentFile": "built-in/keyboard/KEYBOARD.md"
+            },
+            {
+              "name": "shortcuts",
+              "path": "built-in/keyboard/shortcuts",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "shortcuts.md",
+                  "path": "built-in/keyboard/shortcuts/shortcuts.md",
+                  "type": "file",
+                  "feature": "keyboard",
+                  "badge": "keyboard",
+                  "label": "Shortcuts",
+                  "description": "The full reference: general controls, text editing, multiline input, and the transcript viewer.",
+                  "contentFile": "built-in/keyboard/shortcuts/shortcuts.md"
+                }
+              ]
+            },
+            {
+              "name": "keybindings",
+              "path": "built-in/keyboard/keybindings",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "keybindings.md",
+                  "path": "built-in/keyboard/keybindings/keybindings.md",
+                  "type": "file",
+                  "feature": "keyboard",
+                  "badge": "keyboard",
+                  "label": "Keybindings",
+                  "description": "Customise any shortcut in ~/.claude/keybindings.json: contexts, actions, chords, and reserved keys.",
+                  "contentFile": "built-in/keyboard/keybindings/keybindings.md"
+                }
+              ]
+            },
+            {
+              "name": "vim-mode",
+              "path": "built-in/keyboard/vim-mode",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "vim-mode.md",
+                  "path": "built-in/keyboard/vim-mode/vim-mode.md",
+                  "type": "file",
+                  "feature": "keyboard",
+                  "badge": "keyboard",
+                  "label": "Vim Mode",
+                  "description": "The vim-style editor for your prompt input: modes, motions, and vimInsertModeRemaps.",
+                  "contentFile": "built-in/keyboard/vim-mode/vim-mode.md"
                 }
               ]
             }

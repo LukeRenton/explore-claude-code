@@ -23,6 +23,15 @@ Notes Claude writes to itself across sessions, build commands, debugging insight
 
 What fills Claude's context window, how to inspect it with `/context`, and how to reclaim space with `/compact`. Plus effort levels and `ultrathink` for controlling how deeply Claude reasons.
 
+### Keyboard & Shortcuts
+
+The shortcuts that drive a session from the keyboard, plus how to remap any of them and the vim-style prompt editor.
+
+- `Esc` - interrupt Claude mid-turn and redirect
+- `Shift+Tab` - cycle permission modes
+- `Ctrl+B` - background the running task
+- `Ctrl+R` - reverse-search command history
+
 ### Bundled Skills
 
 Prompt-based workflows available in every Claude Code session. Unlike the custom skills you create in `.claude/skills/`, these are maintained by Anthropic and work out of the box.
@@ -45,7 +54,7 @@ Slash commands baked into Claude Code that run fixed logic directly. Session man
 
 ### More Coming Soon
 
-This section will grow to cover other built-in capabilities like CLI flags and keyboard shortcuts.
+This section will grow to cover other built-in capabilities like the CLI and headless mode.
 
 ## Explore
 
