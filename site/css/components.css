@@ -132,13 +132,17 @@
   position: relative;
 }
 
-/* Canvas for animated tree lines */
+/* Canvas for animated tree lines.
+   Sits ABOVE the row backgrounds (z-index 2 vs the rows' z-index 1) so the
+   folder connector lines stay visible when a row is hovered or selected —
+   the canvas is transparent except for the thin gutter lines, so it never
+   covers icons or labels. */
 .tree-guide-canvas {
   position: absolute;
   top: 0;
   left: 0;
   pointer-events: none;
-  z-index: 0;
+  z-index: 2;
 }
 
 /* Staggered item reveal */

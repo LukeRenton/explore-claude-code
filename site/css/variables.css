@@ -51,6 +51,11 @@
   --syn-function: #c8b89a;
   --syn-variable: #c49a6e;
 
+  /* Terminal status colors — dark defaults */
+  --term-success: #6e9468;
+  --term-error: #c45b54;
+  --term-warning: #c4a43e;
+
   /* Radius — sharp, not puffy */
   --radius-sm: 2px;
   --radius-md: 3px;
@@ -102,25 +107,9 @@
   --syn-keyword: #45688f;
   --syn-function: #6f5f38;
   --syn-variable: #8a5d28;
-}
 
-/* Keep the integrated terminal dark in light mode (its output colors are
-   tuned for a dark surface). Re-scoping the dark tokens onto the panel
-   flips everything inside it back without touching the terminal's rules. */
-:root[data-theme="light"] .terminal-panel {
-  --bg-page: #0e0d0c;
-  --bg-base: #141211;
-  --bg-surface: #1a1816;
-  --bg-elevated: #22201d;
-  --bg-hover: #2a2825;
-  --bg-active: #33302c;
-
-  --text-primary: #b8b0a4;
-  --text-secondary: #847c72;
-  --text-muted: #5c564f;
-  --text-bright: #e6dfd6;
-
-  --border-subtle: #272421;
-  --border-default: #3a3632;
-  --border-strong: #4d4841;
+  /* Terminal status colors — darkened for the light surface */
+  --term-success: #4f7a45;
+  --term-error: #b23a33;
+  --term-warning: #8a6d12;
 }

@@ -250,15 +250,15 @@
 }
 
 .term-text--success {
-  color: #6e9468;
+  color: var(--term-success);
 }
 
 .term-text--error {
-  color: #c45b54;
+  color: var(--term-error);
 }
 
 .term-text--warning {
-  color: #c4a43e;
+  color: var(--term-warning);
 }
 
 /* Table-style output */
@@ -300,11 +300,11 @@
 }
 
 .term-check__icon--pass {
-  color: #6e9468;
+  color: var(--term-success);
 }
 
 .term-check__icon--fail {
-  color: #c45b54;
+  color: var(--term-error);
 }
 
 .term-check__icon--spin {
@@ -328,7 +328,7 @@
 
 /* Diff output */
 .term-diff-add {
-  color: #6e9468;
+  color: var(--term-success);
 }
 
 .term-diff-add::before {
@@ -336,7 +336,7 @@
 }
 
 .term-diff-del {
-  color: #c45b54;
+  color: var(--term-error);
 }
 
 .term-diff-del::before {
