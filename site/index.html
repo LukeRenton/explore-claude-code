@@ -39,6 +39,7 @@
   <link rel="stylesheet" href="css/syntax.css">
   <link rel="stylesheet" href="css/void.css">
   <link rel="stylesheet" href="css/terminal.css">
+  <link rel="stylesheet" href="css/search.css">
 </head>
 <body>
 
@@ -54,13 +55,17 @@
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
       </button>
       <span class="title-bar__text">claude-code-explorer : my-project</span>
+      <button class="titlebar-btn" id="search-trigger" aria-label="Search" title="Search (Ctrl+K / Cmd+K)">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.4"/><path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <span class="titlebar-btn__hint" id="search-hint">Ctrl K</span>
+      </button>
       <button class="mobile-terminal-toggle" id="mobile-terminal-toggle" aria-label="Toggle terminal">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
       </button>
       <a class="title-bar__badge" href="https://github.com/LukeRenton/explore-claude-code" target="_blank" rel="noopener noreferrer">
         <img src="https://img.shields.io/github/stars/LukeRenton/explore-claude-code?style=flat&logo=github&label=GitHub&color=c47a50" alt="GitHub" height="18">
       </a>
-      <a class="title-bar__badge" href="https://buymeacoffee.com/lukerent" target="_blank" rel="noopener noreferrer">
+      <a class="title-bar__badge title-bar__badge--support" href="https://buymeacoffee.com/lukerent" target="_blank" rel="noopener noreferrer">
         <img src="https://img.shields.io/badge/Buy_Me_A_Coffee-FFDD00?style=flat&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me A Coffee" height="18">
       </a>
     </div>
@@ -139,6 +144,7 @@
   <script src="js/content-loader.js"></script>
   <script src="js/progress.js"></script>
   <script src="js/terminal.js"></script>
+  <script src="js/search.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

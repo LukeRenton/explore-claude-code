@@ -110,6 +110,45 @@ html, body {
   display: block;
 }
 
+/* Title-bar icon buttons (search, theme) */
+.titlebar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 24px;
+  padding: 0 8px;
+  margin-left: var(--space-sm);
+  border: 1px solid var(--border-default);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  transition: color 0.12s, border-color 0.12s, background 0.12s;
+  -webkit-app-region: no-drag;
+  flex-shrink: 0;
+}
+
+.titlebar-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+  background: var(--bg-hover);
+}
+
+.titlebar-btn svg { display: block; }
+
+.titlebar-btn--icon {
+  padding: 0;
+  width: 26px;
+  justify-content: center;
+}
+
+.titlebar-btn__hint {
+  font-size: 10px;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+}
+
 /* ── Main Layout ───────────────────────────────────────────── */
 
 .main-layout {
@@ -368,6 +407,22 @@ html, body {
 
   .title-bar__badge img {
     height: 16px;
+  }
+
+  /* Free up room in the cramped mobile title bar */
+  .titlebar-btn {
+    margin-left: var(--space-xs);
+    padding: 0;
+    width: 28px;
+    justify-content: center;
+  }
+
+  .titlebar-btn__hint {
+    display: none;
+  }
+
+  .title-bar__badge--support {
+    display: none;
   }
 
   /* Main layout — content fills the space */

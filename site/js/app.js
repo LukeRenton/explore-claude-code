@@ -43,6 +43,10 @@ class App {
     this.terminal = new Terminal();
     this.terminal.init();
 
+    // Search palette (Cmd/Ctrl+K)
+    this.search = new Search(this.manifest, (path) => this.explorer.selectPath(path));
+    this._setupSearch();
+
     // Mobile UI
     this._setupMobile();
 
@@ -67,6 +71,12 @@ class App {
   _setupEventListeners() {
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
+      // Cmd/Ctrl+K opens the search palette
+      if ((e.metaKey || e.ctrlKey) && (e.key === 'k' || e.key === 'K')) {
+        e.preventDefault();
+        if (this.search) this.search.open();
+        return;
+      }
       if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
         e.preventDefault();
         this._navigate(-1);
@@ -76,6 +86,10 @@ class App {
       }
       // Escape exits void, fullscreen, or mobile panels
       if (e.key === 'Escape') {
+        if (this.search && this.search.isOpen()) {
+          this.search.close();
+          return;
+        }
         const overlay = document.getElementById('void-overlay');
         if (overlay && overlay.classList.contains('active')) {
           this._exitVoid();
@@ -108,6 +122,20 @@ class App {
 
     // Traffic light buttons
     this._setupTrafficLights();
+  }
+
+  _setupSearch() {
+    // Platform-aware shortcut hint
+    const isMac = /Mac|iPhone|iPad|iPod/.test(navigator.platform || navigator.userAgent || '');
+    const hint = document.getElementById('search-hint');
+    if (hint) hint.textContent = isMac ? '⌘K' : 'Ctrl K';
+
+    const trigger = document.getElementById('search-trigger');
+    if (trigger) {
+      trigger.addEventListener('click', () => {
+        if (this.search) this.search.open();
+      });
+    }
   }
 
   _setupTrafficLights() {
