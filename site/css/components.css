@@ -400,6 +400,11 @@
 }
 
 .file-view__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--space-md);
   font-size: 12px;
   color: var(--text-muted);
   margin-top: var(--space-sm);
@@ -411,6 +416,32 @@
   background: var(--bg-elevated);
   padding: 1px 5px;
   border-radius: var(--radius-sm);
+}
+
+/* Share (copy deep link) button */
+.file-view__share {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  padding: 3px 9px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: color 0.12s, border-color 0.12s;
+}
+
+.file-view__share svg { display: block; }
+
+.file-view__share:hover,
+.file-view__share--copied {
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 /* Command block */

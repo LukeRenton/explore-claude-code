@@ -118,8 +118,15 @@ class ContentLoader {
       html += `<div class="file-view__deprecated">Deprecated: this feature has been superseded by <strong>skills</strong>. Commands still work, but skills offer frontmatter, supporting files, and auto-loading.</div>`;
     }
 
-    // File path
-    html += `<div class="file-view__meta">File: <code>${node.path}</code></div>`;
+    // File path + shareable deep link
+    html += `
+      <div class="file-view__meta">
+        <span class="file-view__meta-path">File: <code>${node.path}</code></span>
+        <button class="file-view__share" data-share-path="${this._escapeAttr(node.path)}" title="Copy a shareable link straight to this page">
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M6.6 9.4l2.8-2.8M7.1 4.6l.9-.9a2.4 2.4 0 013.3 3.3l-.9.9M8.9 11.4l-.9.9a2.4 2.4 0 01-3.3-3.3l.9-.9" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          <span class="file-view__share-label">Copy link</span>
+        </button>
+      </div>`;
 
     // Command
     if (node.command) {
@@ -223,6 +230,12 @@ class ContentLoader {
       btn.addEventListener('click', () => this._copyText(btn, btn.getAttribute('data-content')));
     });
 
+    // Share (copy deep link) button
+    const shareBtn = container.querySelector('.file-view__share');
+    if (shareBtn) {
+      shareBtn.addEventListener('click', () => this._copyLink(shareBtn));
+    }
+
     // Related file links
     container.querySelectorAll('.file-view__related-link').forEach(link => {
       link.addEventListener('click', (e) => {
@@ -257,6 +270,23 @@ class ContentLoader {
       const original = btn.textContent;
       btn.textContent = 'Copied!';
       setTimeout(() => { btn.textContent = original; }, 1500);
+    });
+  }
+
+  /** Copy a shareable deep link to the current file, preserving the button's icon */
+  _copyLink(btn) {
+    const path = btn.getAttribute('data-share-path');
+    const url = `${location.origin}${location.pathname}#${path}`;
+    const label = btn.querySelector('.file-view__share-label');
+    navigator.clipboard.writeText(url).then(() => {
+      if (!label) return;
+      const original = label.textContent;
+      label.textContent = 'Link copied!';
+      btn.classList.add('file-view__share--copied');
+      setTimeout(() => {
+        label.textContent = original;
+        btn.classList.remove('file-view__share--copied');
+      }, 1600);
     });
   }
 
