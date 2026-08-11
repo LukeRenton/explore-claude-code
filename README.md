@@ -42,6 +42,13 @@ The explorer is split into two sections. Everything under `.claude/` is project 
 
 Every piece of content is written as if it were a real config file in a real repo. You're not reading *about* the config, you're reading *the config itself*, annotated so you understand every line. When you're done exploring, you can copy the scaffolding straight into your own projects.
 
+## ⌨️ Getting Around
+
+- **Search** with `Ctrl/Cmd + K`: a palette that jumps to any file or feature by title, path, or badge
+- **Light and dark themes** via a title-bar toggle that remembers your choice and follows your system preference
+- **Copy link** on any page to share a deep link straight to that entry
+- **Arrow keys** step through files in order, and the terminal panel runs a slash-command emulator (`/help`, `/init`, `/doctor`, and more)
+
 ## 🚀 Try It
 
 The fastest way to get started is the live site:
@@ -73,13 +80,14 @@ explore-claude-code/
 │   │   └── manifest.json     # Drives the entire UI (tree, content, badges, features)
 │   ├── content/              # Source markdown and config files
 │   ├── js/
-│   │   ├── app.js            # Main controller, routing, keyboard nav
+│   │   ├── app.js            # Main controller, routing, keyboard nav, theme
 │   │   ├── file-explorer.js  # Sidebar tree with animated canvas connectors
 │   │   ├── content-loader.js # Custom markdown parser and renderer
 │   │   ├── terminal.js       # Interactive terminal panel
+│   │   ├── search.js         # Cmd/Ctrl+K search palette
 │   │   ├── progress.js       # Feature completion tracking (localStorage)
 │   │   └── icons.js          # Hand-crafted SVG icon library
-│   └── css/                  # Variables, layout, components, syntax, terminal, void
+│   └── css/                  # Variables, layout, components, syntax, terminal, search, void
 ├── logo.png
 └── README.md
 ```
