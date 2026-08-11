@@ -3,6 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Apply saved / preferred theme before first paint to avoid a flash -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('tcc-theme');
+        if (t !== 'light' && t !== 'dark') {
+          t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+
   <title>Explore Claude Code</title>
   <link rel="icon" type="image/png" href="favicon.png">
 
@@ -59,6 +75,7 @@
         <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.4"/><path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
         <span class="titlebar-btn__hint" id="search-hint">Ctrl K</span>
       </button>
+      <button class="titlebar-btn titlebar-btn--icon" id="theme-toggle" aria-label="Toggle colour theme" title="Toggle light / dark"></button>
       <button class="mobile-terminal-toggle" id="mobile-terminal-toggle" aria-label="Toggle terminal">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
       </button>

@@ -35,7 +35,7 @@ pre[class*="language-"] {
 .token.number,
 .token.constant,
 .token.symbol {
-  color: #d4937a;
+  color: var(--syn-number);
 }
 
 /* Strings — muted sage green */
@@ -44,7 +44,7 @@ pre[class*="language-"] {
 .token.string,
 .token.char,
 .token.builtin {
-  color: #8aab7c;
+  color: var(--syn-string);
 }
 
 /* Operators — warm gold */
@@ -52,27 +52,27 @@ pre[class*="language-"] {
 .token.entity,
 .token.url,
 .language-css .token.string {
-  color: #c4a86e;
+  color: var(--syn-operator);
 }
 
 /* Keywords — dusty blue */
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-  color: #7d9ab8;
+  color: var(--syn-keyword);
 }
 
 /* Functions — warm cream */
 .token.function,
 .token.class-name {
-  color: #c8b89a;
+  color: var(--syn-function);
 }
 
 /* Variables, regex — muted amber */
 .token.regex,
 .token.important,
 .token.variable {
-  color: #c49a6e;
+  color: var(--syn-variable);
 }
 
 .token.important,

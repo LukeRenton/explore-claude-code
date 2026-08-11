@@ -2,6 +2,7 @@
 
 :root {
   /* Background layers — warm charcoal, not cold blue-gray */
+  --bg-page: #0e0d0c;
   --bg-base: #141211;
   --bg-surface: #1a1816;
   --bg-elevated: #22201d;
@@ -42,6 +43,14 @@
   --badge-keyboard: #8a86a6;
   --badge-terminal: #5f8e94;
 
+  /* Syntax highlighting (Prism) — dark defaults */
+  --syn-number: #d4937a;
+  --syn-string: #8aab7c;
+  --syn-operator: #c4a86e;
+  --syn-keyword: #7d9ab8;
+  --syn-function: #c8b89a;
+  --syn-variable: #c49a6e;
+
   /* Radius — sharp, not puffy */
   --radius-sm: 2px;
   --radius-md: 3px;
@@ -61,4 +70,57 @@
 
   /* Sidebar */
   --sidebar-width: 270px;
+}
+
+/* ── Light theme — warm paper, same terracotta accent ──────── */
+
+:root[data-theme="light"] {
+  --bg-page: #e4ddd1;
+  --bg-base: #f6f2ec;
+  --bg-surface: #efe9df;
+  --bg-elevated: #e7dfd2;
+  --bg-hover: #e0d7c8;
+  --bg-active: #d7ccba;
+
+  --text-primary: #403a31;
+  --text-secondary: #635b4f;
+  --text-muted: #8f8577;
+  --text-bright: #262019;
+
+  --border-subtle: #e0d7c8;
+  --border-default: #cdc2af;
+  --border-strong: #b3a68f;
+
+  --accent: #b0603a;
+  --accent-hover: #954c2a;
+  --accent-muted: rgba(176, 96, 58, 0.12);
+
+  /* Syntax — darkened so code stays readable on the light surface */
+  --syn-number: #b5533a;
+  --syn-string: #4f7a3f;
+  --syn-operator: #836a17;
+  --syn-keyword: #45688f;
+  --syn-function: #6f5f38;
+  --syn-variable: #8a5d28;
+}
+
+/* Keep the integrated terminal dark in light mode (its output colors are
+   tuned for a dark surface). Re-scoping the dark tokens onto the panel
+   flips everything inside it back without touching the terminal's rules. */
+:root[data-theme="light"] .terminal-panel {
+  --bg-page: #0e0d0c;
+  --bg-base: #141211;
+  --bg-surface: #1a1816;
+  --bg-elevated: #22201d;
+  --bg-hover: #2a2825;
+  --bg-active: #33302c;
+
+  --text-primary: #b8b0a4;
+  --text-secondary: #847c72;
+  --text-muted: #5c564f;
+  --text-bright: #e6dfd6;
+
+  --border-subtle: #272421;
+  --border-default: #3a3632;
+  --border-strong: #4d4841;
 }

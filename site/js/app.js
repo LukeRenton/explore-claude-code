@@ -47,6 +47,9 @@ class App {
     this.search = new Search(this.manifest, (path) => this.explorer.selectPath(path));
     this._setupSearch();
 
+    // Light / dark theme toggle
+    this._setupTheme();
+
     // Mobile UI
     this._setupMobile();
 
@@ -122,6 +125,32 @@ class App {
 
     // Traffic light buttons
     this._setupTrafficLights();
+  }
+
+  _setupTheme() {
+    const root = document.documentElement;
+    // The inline <head> script already applied the theme before first paint.
+    this._renderThemeIcon(root.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
+
+    const btn = document.getElementById('theme-toggle');
+    if (btn) {
+      btn.addEventListener('click', () => {
+        const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('tcc-theme', next); } catch (e) { /* ignore */ }
+        this._renderThemeIcon(next);
+      });
+    }
+  }
+
+  _renderThemeIcon(theme) {
+    const btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    const sun = '<svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="3.2" stroke="currentColor" stroke-width="1.3"/><path d="M8 1v1.6M8 13.4V15M15 8h-1.6M2.6 8H1M12.95 3.05l-1.13 1.13M4.18 11.82l-1.13 1.13M12.95 12.95l-1.13-1.13M4.18 4.18L3.05 3.05" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>';
+    const moon = '<svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 9.6A5.6 5.6 0 016.4 2.5 5.6 5.6 0 1013.5 9.6z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>';
+    // Show the icon of the mode you'll switch TO
+    btn.innerHTML = theme === 'light' ? moon : sun;
+    btn.setAttribute('aria-label', theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
   }
 
   _setupSearch() {

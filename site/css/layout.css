@@ -8,7 +8,7 @@
 
 html, body {
   height: 100%;
-  background: #0e0d0c;
+  background: var(--bg-page);
   color: var(--text-primary);
   font-family: var(--font-ui);
   font-size: 14px;
