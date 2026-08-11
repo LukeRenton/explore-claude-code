@@ -100,6 +100,25 @@
   --accent-hover: #954c2a;
   --accent-muted: rgba(176, 96, 58, 0.12);
 
+  /* Badge text — darkened so labels stay legible on the pale badge tint.
+     The tint backgrounds keep their hue; only the text tone changes. */
+  --badge-memory: #8f4e40;
+  --badge-commands: #5f5486;
+  --badge-config: #5a5651;
+  --badge-mcp: #4a6f44;
+  --badge-skill: #3d6b64;
+  --badge-agents: #8a6a2e;
+  --badge-plugins: #756a1f;
+  --badge-marketplace: #556339;
+  --badge-hooks: #8a4a3a;
+  --badge-code: #3d5f7d;
+  --badge-builtin: #55616e;
+  --badge-cli: #5f5486;
+  --badge-mode: #446a7c;
+  --badge-context: #526b5f;
+  --badge-keyboard: #5c587c;
+  --badge-terminal: #3d666b;
+
   /* Syntax — darkened so code stays readable on the light surface */
   --syn-number: #b5533a;
   --syn-string: #4f7a3f;

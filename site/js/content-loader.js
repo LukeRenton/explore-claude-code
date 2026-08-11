@@ -98,11 +98,12 @@ class ContentLoader {
     // Header section
     html += '<div class="file-view__header">';
 
-    // Badge
+    // Badge — styling comes from the .tree-badge--<id> class (token-driven,
+    // so it adapts to light / dark) rather than an inline hardcoded hex.
     if (node.badge) {
       const badgeData = this.manifest.badges[node.badge];
       if (badgeData) {
-        html += `<span class="file-view__badge tree-badge--${node.badge}" style="background: rgba(${this._hexToRgb(badgeData.color)}, 0.15); color: ${badgeData.color};">${badgeData.label}</span>`;
+        html += `<span class="file-view__badge tree-badge--${node.badge}">${badgeData.label}</span>`;
       }
     }
 
@@ -647,13 +648,5 @@ class ContentLoader {
   /** Escape for HTML attributes */
   _escapeAttr(str) {
     return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-  }
-
-  /** Convert hex color to RGB values */
-  _hexToRgb(hex) {
-    const r = parseInt(hex.slice(1, 3), 16);
-    const g = parseInt(hex.slice(3, 5), 16);
-    const b = parseInt(hex.slice(5, 7), 16);
-    return `${r}, ${g}, ${b}`;
   }
 }
