@@ -42,6 +42,7 @@
   --badge-context: #7d9488;
   --badge-keyboard: #8a86a6;
   --badge-terminal: #5f8e94;
+  --badge-rules: #9a7e8e;
 
   /* Syntax highlighting (Prism) — dark defaults */
   --syn-number: #d4937a;
@@ -118,6 +119,7 @@
   --badge-context: #526b5f;
   --badge-keyboard: #5c587c;
   --badge-terminal: #3d666b;
+  --badge-rules: #6e4f5e;
 
   /* Syntax — darkened so code stays readable on the light surface */
   --syn-number: #b5533a;
