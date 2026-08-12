@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Try the live explorer
+    url: https://exploreclaudecode.com
+    about: Click through the site before filing, your answer may already be there
+  - name: Read the contributing guide
+    url: https://github.com/LukeRenton/explore-claude-code/blob/main/CONTRIBUTING.md
+    about: How to add a content entry, run it locally, and open a PR

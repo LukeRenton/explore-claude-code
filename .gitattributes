@@ -1,0 +1,18 @@
+# Normalize line endings. Content markdown and source are stored and checked
+# out as LF on every OS so the renderer never sees stray CRLF, regardless of
+# a contributor's core.autocrlf setting.
+* text=auto
+
+*.md   text eol=lf
+*.js   text eol=lf
+*.css  text eol=lf
+*.html text eol=lf
+*.json text eol=lf
+*.yml  text eol=lf
+*.sh   text eol=lf
+
+# Binary assets: never normalize
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
