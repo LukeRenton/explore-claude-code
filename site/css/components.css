@@ -88,6 +88,7 @@
 .tree-badge--skill { background: rgba(94, 145, 138, 0.12); color: var(--badge-skill); }
 .tree-badge--agents { background: rgba(184, 150, 94, 0.12); color: var(--badge-agents); }
 .tree-badge--plugins { background: rgba(168, 154, 72, 0.12); color: var(--badge-plugins); }
+.tree-badge--mod { background: rgba(154, 138, 94, 0.12); color: var(--badge-mod); }
 .tree-badge--marketplace { background: rgba(122, 139, 94, 0.12); color: var(--badge-marketplace); }
 .tree-badge--hooks { background: rgba(173, 110, 94, 0.12); color: var(--badge-hooks); }
 .tree-badge--code { background: rgba(94, 130, 160, 0.12); color: var(--badge-code); }

@@ -29,6 +29,10 @@
       "label": "plugins",
       "color": "#a89a48"
     },
+    "mod": {
+      "label": "mod",
+      "color": "#9a8a5e"
+    },
     "marketplace": {
       "label": "marketplace",
       "color": "#7a8b5e"
@@ -117,45 +121,50 @@
       "description": "Package skills, agents, hooks, and MCP servers into shareable extensions.",
       "order": 9
     },
+    "mods": {
+      "title": "Mods",
+      "description": "JavaScript hooks that live inside your session: watch events, rewrite or deny them, and draw custom UI.",
+      "order": 10
+    },
     "marketplaces": {
       "title": "Marketplaces",
       "description": "Distribute and discover plugins through curated catalogues.",
-      "order": 10
+      "order": 11
     },
     "bundled-skills": {
       "title": "Bundled Skills",
       "description": "Prompt-based workflows that ship with every Claude Code session.",
-      "order": 11
+      "order": 12
     },
     "built-in-commands": {
       "title": "Built-in Commands",
       "description": "Slash commands baked into Claude Code that execute fixed logic directly.",
-      "order": 12
+      "order": 13
     },
     "modes": {
       "title": "Modes",
       "description": "Control how much Claude does on its own: review each action, accept edits, plan first, or hand off with safety checks.",
-      "order": 13
+      "order": 14
     },
     "auto-memory": {
       "title": "Auto Memory",
       "description": "How Claude writes notes to itself across sessions and reads them back. The counterpart to CLAUDE.md.",
-      "order": 14
+      "order": 15
     },
     "context": {
       "title": "Context & Thinking",
       "description": "What fills Claude's context window, how to inspect and reclaim it, and how to control how hard Claude thinks.",
-      "order": 15
+      "order": 16
     },
     "keyboard": {
       "title": "Keyboard & Shortcuts",
       "description": "The shortcuts that ship with every session, how to customise them, and the vim-style prompt editor.",
-      "order": 16
+      "order": 17
     },
     "cli": {
       "title": "CLI & Headless",
       "description": "How you launch claude from the terminal: interactive versus print mode, the flags that matter, and headless runs for scripts and CI.",
-      "order": 17
+      "order": 18
     }
   },
   "tree": [
@@ -462,6 +471,109 @@
                       "label": "Marketplace Catalogue",
                       "description": "The marketplace.json file lists plugins and where to fetch them from.",
                       "contentFile": ".claude/plugins/my-marketplace/.claude-plugin/marketplace.json"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "mods",
+          "path": ".claude/mods",
+          "type": "directory",
+          "badge": "mod",
+          "children": [
+            {
+              "name": "MODS.md",
+              "path": ".claude/mods/MODS.md",
+              "type": "file",
+              "feature": "mods",
+              "badge": "mod",
+              "label": "What Are Mods?",
+              "description": "Learn how mods run JavaScript inside your session to observe, rewrite, or deny events and draw custom UI.",
+              "contentFile": ".claude/mods/MODS.md"
+            },
+            {
+              "name": "my-mod",
+              "path": ".claude/mods/my-mod",
+              "type": "directory",
+              "children": [
+                {
+                  "name": ".claude-plugin",
+                  "path": ".claude/mods/my-mod/.claude-plugin",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "plugin.json",
+                      "path": ".claude/mods/my-mod/.claude-plugin/plugin.json",
+                      "type": "file",
+                      "feature": "mods",
+                      "badge": "mod",
+                      "label": "Mod Manifest",
+                      "description": "A mod is a plugin: the same plugin.json, plus a pointer to its type contract.",
+                      "contentFile": ".claude/mods/my-mod/.claude-plugin/plugin.json"
+                    }
+                  ]
+                },
+                {
+                  "name": "hooks",
+                  "path": ".claude/mods/my-mod/hooks",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "hooks.json",
+                      "path": ".claude/mods/my-mod/hooks/hooks.json",
+                      "type": "file",
+                      "feature": "mods",
+                      "badge": "mod",
+                      "label": "Mod Module List",
+                      "description": "hooks.json lists the JavaScript modules Claude Code loads into the session.",
+                      "contentFile": ".claude/mods/my-mod/hooks/hooks.json"
+                    },
+                    {
+                      "name": "my-mod.mjs",
+                      "path": ".claude/mods/my-mod/hooks/my-mod.mjs",
+                      "type": "file",
+                      "feature": "mods",
+                      "badge": "mod",
+                      "label": "The Mod Itself",
+                      "description": "A working mod that holds risky shell commands and counts them in a band above the prompt.",
+                      "contentFile": ".claude/mods/my-mod/hooks/my-mod.mjs"
+                    }
+                  ]
+                },
+                {
+                  "name": "types",
+                  "path": ".claude/mods/my-mod/types",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "index.d.ts",
+                      "path": ".claude/mods/my-mod/types/index.d.ts",
+                      "type": "file",
+                      "feature": "mods",
+                      "badge": "mod",
+                      "label": "Mod Type Contract",
+                      "description": "Declares the $.state keys a mod uses, so editors and the validator can check them.",
+                      "contentFile": ".claude/mods/my-mod/types/index.d.ts"
+                    }
+                  ]
+                },
+                {
+                  "name": "tests",
+                  "path": ".claude/mods/my-mod/tests",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "name": "my-mod.test.ts",
+                      "path": ".claude/mods/my-mod/tests/my-mod.test.ts",
+                      "type": "file",
+                      "feature": "mods",
+                      "badge": "mod",
+                      "label": "Mod Tests",
+                      "description": "Test a mod against a fake session with claude plugin test.",
+                      "contentFile": ".claude/mods/my-mod/tests/my-mod.test.ts"
                     }
                   ]
                 }
@@ -954,6 +1066,23 @@
                   "label": "/run",
                   "description": "Launches and drives your app so you can see a change working, not just passing tests.",
                   "contentFile": "built-in/bundled-skills/run/run.md"
+                }
+              ]
+            },
+            {
+              "name": "plugin-authoring",
+              "path": "built-in/bundled-skills/plugin-authoring",
+              "type": "directory",
+              "children": [
+                {
+                  "name": "plugin-authoring.md",
+                  "path": "built-in/bundled-skills/plugin-authoring/plugin-authoring.md",
+                  "type": "file",
+                  "feature": "bundled-skills",
+                  "badge": "skill",
+                  "label": "/plugin-authoring",
+                  "description": "Builds a mod for you, as a plugin of function hooks that hot-reloads into your session.",
+                  "contentFile": "built-in/bundled-skills/plugin-authoring/plugin-authoring.md"
                 }
               ]
             }

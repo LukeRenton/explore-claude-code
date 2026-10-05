@@ -1,0 +1,26 @@
+{
+  // .claude-plugin/plugin.json: Mod Manifest
+  //
+  // A mod is a plugin whose hooks are JavaScript functions instead
+  // of shell commands. The manifest is the same plugin.json you
+  // already know, plus one field: "types".
+  //
+  // Load it during development with:
+  //   claude --plugin-dir ./my-mod
+
+  "name": "my-mod",
+  "version": "0.1.0",
+  "description": "Holds risky shell commands and counts them in a band above the prompt",
+
+  "author": {
+    "name": "Your Name"
+  },
+
+  // Points at the type contract that declares this mod's $.state
+  // keys. Claude Code checks it when you run:
+  //   claude plugin validate ./my-mod
+  "types": "./types/index.d.ts"
+
+  // No "hooks" field needed. Claude Code reads hooks/hooks.json
+  // at the plugin root, which lists the modules to load.
+}

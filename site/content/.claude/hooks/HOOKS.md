@@ -180,6 +180,10 @@ Async hooks cannot block tool calls or return decisions. They are useful for run
 
 **Inject environment at startup** (SessionStart): write `export` statements to `$CLAUDE_ENV_FILE` to set environment variables for the session.
 
+## Need More Than a Script?
+
+Shell hooks start a fresh process for every event. If you want state that lasts the whole session, live UI like a band above the prompt or a docked pane, or to call Claude Code features directly, write a [mod](^JavaScript hooks that run inside your session. See the mods section) instead. Mods are function hooks shipped as a plugin.
+
 ## Tips
 
 - Hooks are snapshotted at session startup. Restart Claude after changing hook config

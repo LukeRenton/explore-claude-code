@@ -634,7 +634,7 @@ class ContentLoader {
     if (path.endsWith('.yml') || path.endsWith('.yaml')) return 'yaml';
     if (path.endsWith('.sh')) return 'bash';
     if (path.endsWith('.ts') || path.endsWith('.tsx')) return 'typescript';
-    if (path.endsWith('.js')) return 'javascript';
+    if (path.endsWith('.js') || path.endsWith('.mjs')) return 'javascript';
     return 'plaintext';
   }
 

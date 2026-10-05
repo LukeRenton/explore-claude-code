@@ -35,6 +35,10 @@ my-plugin/
 
 Only `plugin.json` goes inside `.claude-plugin/`. All other directories live at the plugin root.
 
+### Mods
+
+A plugin can also carry [mods](^JavaScript or TypeScript hooks that run inside your session and can draw custom UI. See the mods section): `hooks/hooks.json` lists JavaScript modules instead of shell commands. See `.claude/mods/` for the full structure.
+
 ## Plugin Manifest
 
 The `plugin.json` file defines your plugin's identity:

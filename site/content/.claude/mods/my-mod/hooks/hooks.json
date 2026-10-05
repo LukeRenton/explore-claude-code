@@ -1,0 +1,12 @@
+{
+  // hooks/hooks.json: Which modules to load
+  //
+  // In a regular plugin this file maps events to shell commands.
+  // In a mod it lists JavaScript or TypeScript modules instead.
+  // Each module exports register(on) and attaches its own hooks.
+  //
+  // Paths are relative to this hooks/ folder. Split a large mod
+  // into several modules and list them all here.
+
+  "modules": ["./my-mod.mjs"]
+}

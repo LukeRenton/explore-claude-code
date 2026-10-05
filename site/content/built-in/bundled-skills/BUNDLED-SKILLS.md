@@ -18,6 +18,7 @@ You invoke bundled skills the same way as any other skill: type `/` followed by 
 | `/deep-research <question>` | Fans out web searches, cross-checks sources, and synthesises a cited report |
 | `/dataviz [request]` | Design guidance for charts and dashboards, with colourblind-safe palettes |
 | `/run` | Launches and drives your app so you can see a change working |
+| `/plugin-authoring` | Builds a mod (pane, band, status line, toast, or hook) that hot-reloads into your session |
 
 ## How They Differ from Custom Skills
 
