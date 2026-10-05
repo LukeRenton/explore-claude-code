@@ -33,10 +33,11 @@ A simulated Claude Code project you can click through. Every file and folder in 
 | `.claude/agents/` | Subagents for specialised, delegated tasks |
 | `.claude/hooks/` | Shell scripts that run on Claude lifecycle events |
 | `.claude/plugins/` | Extend Claude with custom tools and resources |
+| `.claude/mods/` | JavaScript hooks that run inside your session and draw custom UI |
 | `.mcp.json` | MCP server config for external tool integrations |
 | `src/` | Example source code sitting alongside real config |
 | **built-in/** | Features that ship with Claude Code (no setup required) |
-| `built-in/bundled-skills/` | `/simplify`, `/batch`, `/debug`, `/loop`, `/claude-api` |
+| `built-in/bundled-skills/` | `/simplify`, `/batch`, `/code-review`, `/run`, `/plugin-authoring`, and more |
 
 The explorer is split into two sections. Everything under `.claude/` is project config you create and commit. Everything under `built-in/` covers features that ship with Claude Code out of the box, no setup required. A visual separator divides the two.
 

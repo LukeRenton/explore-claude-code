@@ -18,13 +18,13 @@ Opening `site/index.html` directly also works (fetches manifest via relative pat
 
 ## Architecture
 
-All educational content is stored as JSON strings inside `site/data/manifest.json`. This single file drives the entire UI — tree structure, file content, labels, badges, and feature groupings. To add or change content, edit the manifest.
+`site/data/manifest.json` drives the entire UI — tree structure, labels, badges, and feature groupings. Each file node points at its source via `contentFile` (a path under `site/content/`). To add or change content, edit the manifest and the matching content file, then run `node scripts/validate-content.js`.
 
 **Component classes (all vanilla JS, no modules, loaded via `<script>` tags):**
 
 - `App` (app.js) — Controller. Loads manifest, wires components, handles keyboard nav (arrow keys), hash routing, traffic light buttons, the Cmd/Ctrl+K search palette, the light/dark theme toggle, and the void easter egg (minimize button → canvas particle animation).
 - `FileExplorer` (file-explorer.js) — Sidebar tree. Draws connector lines (├── └──) on `<canvas>` elements inside `.tree-children-guided` containers. `.claude` and `built-in` are auto-expanded on load (`expandedDirs`).
-- `ContentLoader` (content-loader.js) — Renders file content. Has a hand-rolled markdown parser supporting: YAML frontmatter (rendered as tables), fenced code blocks, tables, lists, inline formatting, and links. Markdown files get a Rendered/Raw toggle. Syntax highlighting via Prism.js. Each page header carries a "Copy link" button that copies a deep link (`origin + #path`).
+- `ContentLoader` (content-loader.js) — Renders file content. Has a hand-rolled markdown parser supporting: YAML frontmatter (rendered as tables), fenced code blocks, tables, lists, inline formatting, and links. Markdown files get a Rendered/Raw toggle. Syntax highlighting via Prism.js, with the language picked from the file extension in `_detectLanguage` (`.mjs` maps to JavaScript, `.ts`/`.d.ts` to TypeScript); a new extension needs a mapping there and, if not already loaded, a Prism component `<script>` in `index.html`. Each page header carries a "Copy link" button that copies a deep link (`origin + #path`).
 - `Terminal` (terminal.js) — Right-side panel. Interactive slash command emulator (`/help`, `/init`, `/doctor`, `/diff`, `/compact`, `/model`, `/cost`, `/status`, `/config`, `/memory`). Animated output sequences.
 - `Search` (search.js) — Cmd/Ctrl+K command palette. Fuzzy-matches over a flattened index of every file's title, path, description, and badge (metadata only, not full body text), then jumps to the result via `explorer.selectPath`. Opens from the title-bar search button or the shortcut.
 - `ProgressTracker` (progress.js) — Tracks visited features in localStorage under key `tcc-progress`.
@@ -45,7 +45,7 @@ All educational content is stored as JSON strings inside `site/data/manifest.jso
 
 **Frontmatter handling:** The markdown renderer detects `---` fenced blocks at the start of content and renders them as styled tables. Without this, `---` becomes `<hr>` and YAML `#` comments render as headings.
 
-**Manifest node schema:** Each tree node has `name`, `path`, `type` ("file"|"directory"|"separator"). Files can have: `content` (markdown/code string), `feature` (groups related files), `badge`, `label`, `description`, `command`. Directories have `children` array. Separator nodes have only `type: "separator"` and render as a dashed divider line.
+**Manifest node schema:** Each tree node has `name`, `path`, `type` ("file"|"directory"|"separator"). Files can have: `contentFile` (path under `site/content/`), `feature` (groups related files), `badge`, `label`, `description`, `command`. Directories have `children` array. Separator nodes have only `type: "separator"` and render as a dashed divider line.
 
 **Content title priority:** The content loader displays `node.label` first, then falls back to the feature title, then the file name. This matters for the built-in section where multiple files share a feature but need distinct titles (e.g., each bundled skill shows its `/command` name, not "Bundled Skills").
 
@@ -53,12 +53,12 @@ All educational content is stored as JSON strings inside `site/data/manifest.jso
 
 **Code block first-line indent bug:** The global `code` styles (padding, background, border) were inherited by `<code>` inside `.md-code-block`, causing a visible indent on the first line of rendered code blocks. Fixed by resetting `<code>` inside `.md-code-block` to `padding: 0; background: none; border: none`.
 
-**Content file line endings:** Always use Unix (LF) line endings for content files in `site/content/`. Windows CRLF can cause rendering issues in code blocks even though the markdown renderer normalises line endings.
+**Content file line endings:** Always use Unix (LF) line endings for content files in `site/content/`. Windows CRLF can cause rendering issues in code blocks even though the markdown renderer normalises line endings. `.gitattributes` enforces LF per extension, so a new content file type (as `.mjs` and `.ts` were for mods) needs its own `eol=lf` line there.
 
 ## Content Design Principles
 
 - Content should feel like exploring a real repo — self-describing boilerplate that explains itself
 - Concise overview for scanning, with depth available for those who want it
-- Each `.claude/` subfolder has a grounding entry-point file (e.g., `SKILLS.md`) outside the scaffolding, then the scaffolding demonstrates the actual structure
+- Each `.claude/` subfolder has a grounding entry-point file (e.g., `SKILLS.md`, `MODS.md`) outside the scaffolding, then the scaffolding demonstrates the actual structure
 - The `built-in/` section covers features that ship with Claude Code and require no setup. A visual separator (dashed line) divides it from the `.claude/` project config above. Each built-in category gets an overview file and individual entries in subdirectories
 - Avoid em-dashes in content. Use commas, periods, or colons instead
