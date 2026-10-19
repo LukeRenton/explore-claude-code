@@ -421,7 +421,8 @@ html, body {
     display: none;
   }
 
-  .title-bar__badge--support {
+  .title-bar__badge--support,
+  .title-bar__badge--author {
     display: none;
   }
 

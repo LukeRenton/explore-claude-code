@@ -10,6 +10,7 @@
   <a href="https://exploreclaudecode.com"><img src="https://img.shields.io/badge/live%20demo-exploreclaudecode.com-c47a50?style=flat-square" alt="Live Demo"></a>
   <a href="https://github.com/LukeRenton/explore-claude-code/blob/main/LICENSE"><img src="https://img.shields.io/github/license/LukeRenton/explore-claude-code?style=flat-square&color=8e82ad" alt="License"></a>
   <a href="https://github.com/LukeRenton/explore-claude-code/stargazers"><img src="https://img.shields.io/github/stars/LukeRenton/explore-claude-code?style=flat-square&color=b8965e" alt="Stars"></a>
+  <a href="https://lukerenton.com"><img src="https://img.shields.io/badge/built%20by-Luke%20Renton-8e82ad?style=flat-square" alt="Built by Luke Renton"></a>
   <img src="https://img.shields.io/badge/zero%20dependencies-vanilla%20JS-3a3632?style=flat-square" alt="Zero Dependencies">
 </p>
 
@@ -113,6 +114,8 @@ Feel free to open an issue if you have ideas or spot something that could be bet
 ## ⭐ Support
 
 If you found this useful, consider giving it a star! It helps others discover the project.
+
+Built by [Luke Renton](https://lukerenton.com). More of my projects live there.
 
 ## 📄 License
 
