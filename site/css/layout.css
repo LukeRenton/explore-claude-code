@@ -422,7 +422,8 @@ html, body {
   }
 
   .title-bar__badge--support,
-  .title-bar__badge--author {
+  .title-bar__badge--author,
+  .title-bar__badge--instagram {
     display: none;
   }
 
